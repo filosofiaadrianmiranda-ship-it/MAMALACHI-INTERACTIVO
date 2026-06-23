@@ -8918,18 +8918,9 @@
       if (gameStarted) return;
       gameStarted = true;
 
-      const btn = document.getElementById('btn-play-game');
-      if (btn) {
-        btn.disabled = true;
-        btn.textContent = "Iniciando...";
-      }
-
-      // Esperar a que el guion esté cargado
-      if (!HISTORIA && guionPromise) {
-        await guionPromise;
-      }
-
-      // 1. Solicitar Pantalla Completa (Fullscreen API)
+      // 1. Solicitar Pantalla Completa (Fullscreen API) inmediatamente
+      // Se realiza aquí de forma síncrona en el hilo del evento de clic para evitar que el
+      // navegador (Chrome, Safari, etc.) expire el gesto de usuario tras un 'await'.
       const elem = document.documentElement;
       try {
         if (elem.requestFullscreen) {
@@ -8943,6 +8934,17 @@
         }
       } catch (err) {
         console.warn("La solicitud de pantalla completa fue rechazada:", err);
+      }
+
+      const btn = document.getElementById('btn-play-game');
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = "Iniciando...";
+      }
+
+      // Esperar a que el guion esté cargado
+      if (!HISTORIA && guionPromise) {
+        await guionPromise;
       }
 
       // 2. Intentar bloquear orientación en horizontal (landscape)
@@ -9001,6 +9003,12 @@
         ChoiceParticles.init();
       }
       window.addEventListener('resize', resizeGame);
+
+      // Redimensionar el juego al entrar y salir de pantalla completa
+      document.addEventListener('fullscreenchange', resizeGame);
+      document.addEventListener('webkitfullscreenchange', resizeGame);
+      document.addEventListener('mozfullscreenchange', resizeGame);
+      document.addEventListener('MSFullscreenChange', resizeGame);
     });
 
     //]]>
