@@ -1,0 +1,1876 @@
+/* ==========================================================================
+   HOJA DE ESTILOS DE "EL MUNDO DE ADRIÁN"
+
+   Este archivo controla TODO el aspecto visual de la página:
+   colores, tamaños, posiciones, animaciones...
+
+   Está organizado por secciones. Cada sección tiene un banner
+   grande con "=====" para que la encuentres fácilmente.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. OCULTAR COSAS DE BLOGGER QUE NO QUEREMOS VER
+
+   Blogger mete automáticamente un aviso de cookies y títulos
+   en las entradas. Con esto los escondemos para que no se vean.
+   ========================================================================== */
+
+/* Esconder el cartel de "Este sitio usa cookies" que Google pone solo */
+#cookieChoiceInfo,
+.cookie-choices-info {
+    display: none !important;
+    /* display: none = no se ve ni ocupa espacio */
+    visibility: hidden !important;
+    /* doble seguridad para que no aparezca */
+}
+
+/* Esconder el título de cada entrada del blog (lo quitamos porque
+   queda feo con nuestro diseño) */
+h3.post-title,
+/* título en formato h3 */
+.post-title,
+/* título con clase */
+.entry-title,
+/* título con clase alternativa */
+.post-header {
+    /* cabecera de la entrada */
+    display: none !important;
+}
+
+
+/* ==========================================================================
+   2. VARIABLES DE COLORES — LOS "BOTES DE PINTURA" DEL BLOG
+
+   Aquí definimos los colores principales. Si quieres cambiar un color
+   en toda la página, solo tienes que cambiarlo aquí UNA VEZ y se
+   actualiza en todas partes donde se use.
+
+   Para usar un color escribes: var(--nombre-del-color)
+   Por ejemplo: background: var(--color-arriba);
+   ========================================================================== */
+
+:root {
+    --color-arriba: #023E8A;
+    /* azul oscuro — fondo arriba */
+    --degradado: #0077B6;
+    /* azul medio — fondo medio */
+    --iconos: #011B3E;
+    /* azul muy oscuro — fondo abajo */
+    --texto-claro: #fdfdfd;
+    /* blanco roto — color del texto normal */
+}
+
+
+/* ==========================================================================
+   3. TIPOGRAFÍA — LAS FUENTES (TIPOS DE LETRA)
+
+   Aquí decimos qué fuente usa cada cosa.
+   'Bruno Ace SC' es la fuente principal (hay que cargarla desde Google Fonts).
+   'Playfair Display' se usa para los títulos h1, h2, h3...
+   ========================================================================== */
+
+body {
+    font-family: 'Bruno Ace SC', sans-serif;
+    /* fuente para todo el texto de la página */
+    background: #03045e;
+    /* color base azul — se ve si la aurora tarda en cargar */
+    color: var(--texto-claro);
+    /* color del texto: blanco roto */
+    font-size: 13px;
+    /* tamaño base del texto */
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: filter 0.6s ease;
+}
+
+
+/* ==========================================================================
+   FONDO "LÁMPARA DE LAVA" (AURORA / MESH GRADIENT)
+
+   Efecto de manchas orgánicas que flotan, se deforman y se fusionan.
+   Colores: #03045e (base), #0077b6 y #00b4d8 (manchas flotantes).
+
+   Técnica: manchas con border-radius animado (deformación orgánica)
+   + movimiento translate + un filtro SVG "goo" que hace que las manchas
+   se fusionen entre sí como una lámpara de lava real.
+   100% CSS puro + un pequeño SVG inline para el filtro.
+   Compatible con Blogger.
+   ========================================================================== */
+
+/* Contenedor: cubre toda la ventana, siempre detrás del contenido */
+.aurora-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: #03045e;
+    /* Filtro "goo": las manchas se fusionan cuando se acercan.
+       Apunta al filtro SVG inline en el HTML */
+    -webkit-filter: url(#aurora-goo);
+    filter: url(#aurora-goo);
+}
+
+/* Cada mancha: forma orgánica que se deforma y flota */
+.aurora-blob {
+    position: absolute;
+    opacity: 0.85;
+    will-change: transform, border-radius;
+    mix-blend-mode: screen;
+    /* mezcla aditiva: los colores se suman al cruzarse */
+}
+
+/* ----- Mancha 1: grande, azul claro, lenta ----- */
+.aurora-blob--1 {
+    width: 65vmax;
+    height: 65vmax;
+    background: #0077b6;
+    top: -15%;
+    left: -10%;
+    animation:
+        lava-move-1 20s ease-in-out infinite alternate,
+        lava-morph-1 15s ease-in-out infinite;
+}
+
+/* ----- Mancha 2: mediana, turquesa, velocidad media ----- */
+.aurora-blob--2 {
+    width: 55vmax;
+    height: 55vmax;
+    background: #00b4d8;
+    bottom: -15%;
+    right: -10%;
+    animation:
+        lava-move-2 25s ease-in-out infinite alternate,
+        lava-morph-2 18s ease-in-out infinite;
+}
+
+/* ----- Mancha 3: mediana-pequeña, azul claro, más rápida ----- */
+.aurora-blob--3 {
+    width: 50vmax;
+    height: 50vmax;
+    background: #0077b6;
+    top: 35%;
+    left: 25%;
+    opacity: 0.7;
+    animation:
+        lava-move-3 22s ease-in-out infinite alternate,
+        lava-morph-3 12s ease-in-out infinite;
+}
+
+/* ---------- MOVIMIENTO: las manchas flotan por la pantalla ---------- */
+
+@keyframes lava-move-1 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(15vw, 20vh) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-10vw, 35vh) scale(0.95);
+    }
+
+    100% {
+        transform: translate(5vw, 50vh) scale(1.05);
+    }
+}
+
+@keyframes lava-move-2 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(-20vw, -15vh) scale(1.08);
+    }
+
+    66% {
+        transform: translate(10vw, -30vh) scale(0.92);
+    }
+
+    100% {
+        transform: translate(-8vw, -50vh) scale(1.05);
+    }
+}
+
+@keyframes lava-move-3 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(-20vw, -15vh) scale(1.12);
+    }
+
+    50% {
+        transform: translate(10vw, 10vh) scale(0.9);
+    }
+
+    75% {
+        transform: translate(20vw, -20vh) scale(1.08);
+    }
+
+    100% {
+        transform: translate(-15vw, 15vh) scale(0.95);
+    }
+}
+
+/* ---------- DEFORMACIÓN: las manchas cambian de forma orgánicamente ---------- */
+
+@keyframes lava-morph-1 {
+
+    0%,
+    100% {
+        border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+    }
+
+    25% {
+        border-radius: 60% 40% 30% 70% / 40% 60% 40% 60%;
+    }
+
+    50% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+
+    75% {
+        border-radius: 55% 45% 50% 50% / 35% 65% 35% 65%;
+    }
+}
+
+@keyframes lava-morph-2 {
+
+    0%,
+    100% {
+        border-radius: 50% 50% 40% 60% / 40% 60% 50% 50%;
+    }
+
+    25% {
+        border-radius: 35% 65% 55% 45% / 55% 45% 60% 40%;
+    }
+
+    50% {
+        border-radius: 60% 40% 45% 55% / 65% 35% 45% 55%;
+    }
+
+    75% {
+        border-radius: 45% 55% 65% 35% / 45% 55% 35% 65%;
+    }
+}
+
+@keyframes lava-morph-3 {
+
+    0%,
+    100% {
+        border-radius: 45% 55% 55% 45% / 55% 45% 45% 55%;
+    }
+
+    20% {
+        border-radius: 65% 35% 40% 60% / 35% 65% 55% 45%;
+    }
+
+    40% {
+        border-radius: 35% 65% 65% 35% / 60% 40% 35% 65%;
+    }
+
+    60% {
+        border-radius: 55% 45% 35% 65% / 45% 55% 65% 35%;
+    }
+
+    80% {
+        border-radius: 40% 60% 50% 50% / 60% 40% 50% 50%;
+    }
+}
+
+/* Reducir animaciones si el usuario prefiere movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    .aurora-blob {
+        animation: none !important;
+        border-radius: 50%;
+    }
+}
+
+/* Los títulos (h1 = más grande, h6 = más pequeño) usan la misma fuente */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Bruno Ace SC', sans-serif;
+}
+
+/* Ocultar el mensaje de estado del blog (Blogger lo pone a veces) */
+.blog-posts .status-msg-wrap {
+    display: none;
+}
+
+/* Ocultar el enlace "Inicio" que Blogger pone automáticamente */
+.home-link {
+    display: none;
+}
+
+
+/* ==========================================================================
+   4. ENLACES — CÓMO SE VEN LOS LINKS
+
+   Cuando hay texto que puedes pulsar (un enlace), estos estilos
+   definen su color normal, cuando pasas el ratón encima, y cuando
+   ya lo has visitado antes.
+   ========================================================================== */
+
+a {
+    /* Color normal del enlace */
+    color: #00b4d8;
+    /* turquesa surf */
+}
+
+a:hover {
+    /* Cuando pasas el ratón encima */
+    color: #caf0f8;
+    /* cyan claro */
+}
+
+a:visited {
+    /* Cuando ya has visitado ese enlace antes */
+    color: #90e0ef;
+    /* azul escarcha */
+}
+
+
+/* ==========================================================================
+   5. CONTENEDOR PRINCIPAL — LA "COLUMNA" CENTRAL
+
+   Esta caja invisible envuelve TODA la página y la centra en la
+   pantalla. En un PC grande, limita el ancho a 600px para que
+   se vea como un móvil (columna vertical). En móvil ocupa todo.
+   ========================================================================== */
+
+.caja-titulo {
+    max-width: 600px;
+    /* no puede ser más ancha de 600 píxeles */
+    width: 100%;
+    /* ocupa todo el ancho disponible (hasta el máximo) */
+    margin: 0 auto;
+    /* margin auto a los lados = centrar horizontalmente */
+    padding: 0 10px;
+    /* 10px de espacio interior a izquierda y derecha */
+    box-sizing: border-box;
+    /* que el padding no sume al ancho total */
+}
+
+/* En pantallas de 768px o más (tablets/PCs), quitar el espacio superior
+   del texto de las tarjetas de redes sociales */
+@media (min-width: 768px) {
+    .contenido-texto-tarjeta {
+        padding-top: 0;
+    }
+}
+
+
+/* ==========================================================================
+   6. CABECERA — TÍTULO NEÓN CON PLANETA SATURNO
+
+   El header muestra "EL MUNDO DE ADRIÁN" con efecto neón,
+   un recuadro interrumpido en la esquina superior derecha
+   donde un planeta Saturno SVG "rompe" el borde,
+   y un fondo de cuadrícula cyberpunk.
+   ========================================================================== */
+
+/* Contenedor exterior de la cabecera */
+#header-wrapper {
+    background: transparent;
+    padding-top: 30px;
+}
+
+/* Centrar todo lo que hay dentro de la cabecera */
+#header-inner {
+    text-align: center;
+}
+
+/* ── Contenedor principal del header ── */
+.header-neon {
+    position: relative;
+    background: transparent;
+    padding: 14px 20px;
+    margin: 0 auto;
+    display: inline-block;
+    overflow: visible;
+    border-radius: 4px;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+/* ── Cuadrícula de fondo cyberpunk ──
+   Líneas finas horizontales y verticales con baja opacidad */
+.header-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0, 180, 216, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 180, 216, 0.06) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: 0;
+}
+
+/* ── Marco SVG metálico plateado ── */
+.header-marco {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ── Título ── */
+.header-titulo {
+    position: relative;
+    z-index: 2;
+    font-family: 'Bruno Ace SC', sans-serif;
+    font-weight: bold;
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0;
+    text-shadow:
+        0 0 10px rgba(0, 180, 216, 0.8),
+        0 0 20px rgba(0, 180, 216, 0.5),
+        0 0 40px rgba(0, 180, 216, 0.3),
+        0 0 80px rgba(0, 180, 216, 0.15);
+    display: block !important;
+}
+
+/* ── La "O" de MUNDO como planeta ── */
+.letra-planeta {
+    display: inline-block;
+    position: relative;
+    background: radial-gradient(ellipse at 38% 35%,
+            #5ec8e8 0%,
+            #1a7a9c 30%,
+            #0d3d50 60%,
+            #061a24 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 6px rgba(0, 180, 216, 0.6));
+}
+
+/* ── Fragmentos de metal flotando en la esquina rota ── */
+.fragmento {
+    position: absolute;
+    z-index: 4;
+    background: linear-gradient(135deg, #b0c4d8, #e8eef3, #8a9fb5);
+    box-shadow:
+        0 0 4px rgba(180, 200, 220, 0.5),
+        0 0 10px rgba(180, 200, 220, 0.2);
+}
+
+/* Fragmentos distribuidos por toda la zona de la esquina rota:
+   desde donde termina la línea superior (~right:60px) hasta
+   donde termina la línea derecha (~top:40%), pasando por la
+   esquina inexistente. */
+.frag-1 {
+    width: 8px;
+    height: 3px;
+    top: -5px;
+    right: 50px;
+    clip-path: polygon(10% 0%, 100% 20%, 85% 100%, 0% 70%);
+    animation: flotar-frag-1 4s ease-in-out infinite;
+}
+
+.frag-2 {
+    width: 5px;
+    height: 6px;
+    top: -8px;
+    right: 30px;
+    clip-path: polygon(0% 15%, 80% 0%, 100% 85%, 20% 100%);
+    animation: flotar-frag-2 5s ease-in-out infinite;
+}
+
+.frag-3 {
+    width: 10px;
+    height: 4px;
+    top: 3px;
+    right: 10px;
+    clip-path: polygon(5% 0%, 95% 10%, 100% 90%, 0% 100%);
+    animation: flotar-frag-3 3.5s ease-in-out infinite;
+}
+
+.frag-4 {
+    width: 4px;
+    height: 7px;
+    top: -3px;
+    right: 3px;
+    clip-path: polygon(20% 0%, 100% 15%, 80% 100%, 0% 85%);
+    animation: flotar-frag-4 4.5s ease-in-out infinite;
+}
+
+.frag-5 {
+    width: 6px;
+    height: 3px;
+    top: 16px;
+    right: 0px;
+    clip-path: polygon(0% 0%, 100% 25%, 90% 100%, 10% 75%);
+    animation: flotar-frag-5 5.5s ease-in-out infinite;
+}
+
+.frag-6 {
+    width: 3px;
+    height: 5px;
+    top: 28px;
+    right: -2px;
+    clip-path: polygon(15% 0%, 85% 10%, 100% 100%, 0% 90%);
+    animation: flotar-frag-6 3.8s ease-in-out infinite;
+}
+
+.frag-7 {
+    width: 7px;
+    height: 2px;
+    top: 8px;
+    right: 20px;
+    clip-path: polygon(0% 20%, 100% 0%, 95% 100%, 5% 80%);
+    animation: flotar-frag-7 4.2s ease-in-out infinite;
+}
+
+/* Cada fragmento tiene su propia animación de deriva + rotación */
+@keyframes flotar-frag-1 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(2px, -3px) rotate(15deg);
+    }
+
+    50% {
+        transform: translate(-1px, -5px) rotate(-10deg);
+    }
+
+    75% {
+        transform: translate(3px, -2px) rotate(20deg);
+    }
+}
+
+@keyframes flotar-frag-2 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(-3px, -4px) rotate(-20deg);
+    }
+
+    66% {
+        transform: translate(2px, -6px) rotate(12deg);
+    }
+}
+
+@keyframes flotar-frag-3 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    30% {
+        transform: translate(4px, -2px) rotate(25deg);
+    }
+
+    60% {
+        transform: translate(1px, -5px) rotate(-15deg);
+    }
+}
+
+@keyframes flotar-frag-4 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(-2px, -5px) rotate(-30deg);
+    }
+
+    70% {
+        transform: translate(3px, -3px) rotate(18deg);
+    }
+}
+
+@keyframes flotar-frag-5 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    35% {
+        transform: translate(3px, -4px) rotate(22deg);
+    }
+
+    65% {
+        transform: translate(-2px, -6px) rotate(-12deg);
+    }
+}
+
+@keyframes flotar-frag-6 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(-3px, -5px) rotate(-25deg);
+    }
+}
+
+@keyframes flotar-frag-7 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(2px, -3px) rotate(10deg);
+    }
+
+    75% {
+        transform: translate(-1px, -4px) rotate(-18deg);
+    }
+}
+
+/* ── Placeholder Saturno (esquina superior derecha, fuera del marco) ── */
+.saturno-placeholder {
+    position: absolute;
+    top: -20px;
+    right: -25px;
+    z-index: 5;
+    line-height: 0;
+    filter: drop-shadow(0 0 8px rgba(0, 180, 216, 0.6));
+    animation: planeta-pulso 3s ease-in-out infinite alternate;
+}
+
+/* Las bandas de superficie se desplazan horizontalmente simulando rotación */
+.planeta-superficie {
+    animation: planeta-rotar 6s linear infinite;
+}
+
+@keyframes planeta-rotar {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-32px);
+    }
+}
+
+/* Iluminación lateral sobre la esfera */
+.planeta-luz {
+    mix-blend-mode: screen;
+}
+
+/* El anillo oscila su inclinación simulando la rotación del planeta */
+.planeta-anillo {
+    transform-origin: 40px 40px;
+    animation: anillo-rotar 6s ease-in-out infinite;
+}
+
+@keyframes anillo-rotar {
+    0% {
+        transform: rotate(-25deg) scaleY(1);
+    }
+
+    25% {
+        transform: rotate(-15deg) scaleY(1.3);
+    }
+
+    50% {
+        transform: rotate(-25deg) scaleY(1);
+    }
+
+    75% {
+        transform: rotate(-35deg) scaleY(0.7);
+    }
+
+    100% {
+        transform: rotate(-25deg) scaleY(1);
+    }
+}
+
+@keyframes planeta-pulso {
+    0% {
+        filter: drop-shadow(0 0 6px rgba(0, 180, 216, 0.4));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 14px rgba(0, 180, 216, 0.8));
+    }
+}
+
+/* ── Animación de flotación ── */
+@keyframes flotar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* ==========================================================================
+   8. CAJA MAESTRA — LA CAJA OSCURA DONDE VAN LOS ICONOS Y LAS ENTRADAS
+
+   Es la caja grande con fondo casi negro que contiene:
+   - Los iconos del menú (Vídeos, Poemas, Juegos...)
+   - La línea amarilla separadora
+   - Las entradas del blog
+   ========================================================================== */
+
+.caja-maestra {
+    background-color: #0077b6;
+    /* teal blue */
+    border-radius: 20px 20px 8px 8px;
+    padding: 20px 20px 40px 20px;
+    margin: 20px 15px 0;
+    border-top: 3px solid #90e0ef;
+    /* borde superior claro — efecto 3D */
+    border-bottom: 3px solid #03045e;
+    /* borde inferior oscuro — efecto 3D */
+    border-left: 2px solid #00b4d8;
+    /* laterales intermedios */
+    border-right: 2px solid #00b4d8;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.4);
+    isolation: isolate;
+    position: relative;
+}
+
+/* ── RESPLANDOR DE LA CAJA CUANDO APARECE UN RAYO ──
+   El JavaScript añade/quita esta clase al generar cada rayo SVG.
+   La sombra aparece y desaparece de golpe (sin transición). */
+.caja-maestra.rayo-activo {
+    box-shadow: 0 0 15px rgba(144, 224, 239, 0.5), 0 0 35px rgba(0, 180, 216, 0.25);
+}
+
+
+/* ==========================================================================
+   9. MENÚ DE ICONOS — LOS 5 BOTONES CON IMAGEN (Vídeos, Poemas, etc.)
+
+   Los iconos se organizan en una fila flexible (flexbox) que se adapta
+   al tamaño de la pantalla. Se colocan 3 por fila con espacio entre ellos.
+   ========================================================================== */
+
+/* Contenedor general del menú de iconos */
+#caja-iconos {
+    background: transparent;
+    /* transparente: se ve el azul de .caja-maestra detrás */
+    padding: 0;
+    margin: 10px 0;
+    /* 10px de separación arriba y abajo */
+    text-align: center;
+    /* todo centrado */
+}
+
+/* La lista de iconos: sin puntos (·), en fila horizontal, con espacio entre ellos */
+#caja-iconos ul {
+    list-style-type: none;
+    /* quitar los puntos de la lista */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    /* colocar los elementos en fila (flexbox) */
+    justify-content: center;
+    /* centrar los iconos horizontalmente */
+    flex-wrap: wrap;
+    /* si no caben, saltar a la siguiente fila */
+    gap: 30px;
+    /* espacio de 30px entre cada icono */
+}
+
+/* Cada elemento de la lista dentro del widget LinkList de Blogger
+   (Blogger usa la clase "LinkList" internamente, NO la puedes cambiar) */
+#caja-iconos .LinkList ul li {
+    flex-basis: calc(33.333% - 20px);
+    /* cada icono ocupa 1/3 del ancho (3 por fila) */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Cada elemento <li> de la lista */
+#caja-iconos li {
+    display: inline-block;
+    /* que se coloquen uno al lado del otro */
+    text-align: center;
+}
+
+
+/* ==========================================================================
+   10. AGUJERO NEGRO — EFECTO AL PULSAR LOS ICONOS
+
+   Cuando pulsas un icono, aparece un agujero negro detrás que lo
+   "traga" con una animación de espiral, y luego te lleva al enlace.
+
+   El agujero tiene 4 capas (como una cebolla):
+   1. agujero-resplandor = un halo de luz violeta alrededor
+   2. agujero-disco      = un anillo giratorio de colores (disco de acreción)
+   3. agujero-nucleo     = el centro negro oscuro
+   4. agujero-destello   = el flash de luz blanca cuando se cierra
+   ========================================================================== */
+
+/* Los enlaces de los iconos necesitan position: relative para que
+   las capas del agujero negro se posicionen respecto a ellos */
+#caja-iconos a {
+    text-decoration: none;
+    /* quitar el subrayado del enlace */
+    color: #ffffff;
+    /* texto blanco */
+    font-weight: bold;
+    /* texto en negrita */
+    display: block;
+    /* que ocupe toda la línea */
+    position: relative;
+    /* necesario para que los hijos con position:absolute se coloquen aquí */
+}
+
+/* ── Estilos compartidos por las 4 capas del agujero negro ──
+   Todas empiezan invisibles (escala 0) y centradas encima del icono.
+   "will-change" avisa al navegador de que estas propiedades van a animarse,
+   para que prepare la tarjeta gráfica y la animación sea suave. */
+.agujero-nucleo,
+.agujero-disco,
+.agujero-resplandor,
+.agujero-destello {
+    position: absolute;
+    /* se coloca ENCIMA del icono, no empuja al resto */
+    top: 50%;
+    /* a la mitad vertical... */
+    left: 50%;
+    /* ...y horizontal del enlace */
+    border-radius: 50%;
+    /* forma circular */
+    pointer-events: none;
+    /* los clics lo atraviesan (no bloquea el icono) */
+    transform: translate(-50%, -50%) scale(0);
+    /* centrado perfecto + invisible (tamaño 0) */
+    will-change: transform, opacity;
+    /* optimización para animaciones */
+}
+
+/* Capa 3: Núcleo oscuro — el centro negro del agujero */
+.agujero-nucleo {
+    width: 50px;
+    height: 50px;
+    /* Degradado circular: negro en el centro, transparente en el borde */
+    background: radial-gradient(circle, #000 40%, rgba(0, 0, 0, 0.9) 60%, transparent 70%);
+    z-index: 10;
+    /* por encima del disco y resplandor */
+}
+
+/* Capa 2: Disco de acreción — el anillo giratorio de colores brillantes
+   Es un círculo con un degradado de colores en forma de reloj (conic-gradient)
+   y un "agujero" en el centro creado con mask (máscara) */
+.agujero-disco {
+    width: 130px;
+    height: 130px;
+    z-index: 9;
+    /* Degradado en forma de reloj: paleta ocean breeze */
+    background: conic-gradient(from 0deg,
+            #03045e, #0077b6, #00b4d8, #90e0ef,
+            #caf0f8, transparent, transparent,
+            #00b4d8, #03045e);
+    /* Estas dos líneas crean el "agujero" central del anillo:
+       mask dice "transparente en el 45% central, visible el resto" */
+    -webkit-mask: radial-gradient(circle, transparent 45%, #000 46%, #000 100%);
+    mask: radial-gradient(circle, transparent 45%, #000 46%, #000 100%);
+}
+
+/* Capa 1: Resplandor — un halo de luz violeta difusa alrededor del agujero */
+.agujero-resplandor {
+    width: 160px;
+    height: 160px;
+    z-index: 8;
+    /* box-shadow crea brillos de colores que se difuminan */
+    box-shadow: 0 0 20px #00b4d8, 0 0 40px #03045e, 0 0 80px rgba(144, 224, 239, 0.3);
+    background: radial-gradient(circle, transparent 50%, rgba(3, 4, 94, 0.15) 100%);
+}
+
+/* Capa 4: Destello final — el flash blanco/cyan que aparece al cerrarse */
+.agujero-destello {
+    width: 250px;
+    height: 250px;
+    z-index: 11;
+    /* por encima de todo */
+    background: radial-gradient(circle, #caf0f8, #00b4d8, transparent 70%);
+    opacity: 0;
+    /* empieza completamente invisible */
+}
+
+/* ── Animaciones de APERTURA del agujero negro ──
+   Cuando pulsas un icono, las capas crecen de tamaño 0 a tamaño completo.
+   Usamos transform: scale() en vez de cambiar width/height porque scale
+   se procesa en la tarjeta gráfica (GPU) y es MUCHO más fluido. */
+
+/* El núcleo simplemente crece */
+.an-abrir-nucleo {
+    animation: agujero-escalar 0.5s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+}
+
+/* El disco crece Y gira 3 vueltas completas (1080 grados) */
+.an-abrir-disco {
+    animation: agujero-disco-abrir 0.6s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+}
+
+/* El resplandor crece y además parpadea (pulsa) continuamente */
+.an-abrir-resplandor {
+    animation: agujero-escalar 0.7s ease-out forwards,
+        agujero-pulsar 1.2s ease-in-out infinite;
+}
+
+/* "forwards" = al terminar la animación, se queda en el último fotograma
+   (no vuelve al estado inicial) */
+
+@keyframes agujero-escalar {
+    from {
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    /* empieza invisible */
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    /* termina a tamaño completo */
+}
+
+@keyframes agujero-disco-abrir {
+    from {
+        transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1) rotate(1080deg);
+    }
+
+    /* 3 vueltas */
+}
+
+@keyframes agujero-pulsar {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    /* semitransparente */
+    50% {
+        opacity: 1;
+    }
+
+    /* totalmente visible */
+}
+
+/* ── El icono siendo "tragado" — hace un espiral hacia el centro ──
+   El icono gira 720° (2 vueltas), se encoge hasta desaparecer,
+   y se desenfoca progresivamente (como si lo estiraran) */
+
+/* ".absorbido" es la clase que el JavaScript le añade al enlace
+   cuando se activa la animación */
+#caja-iconos a.absorbido .icono-menu {
+    animation: espiral-tragar 0.9s cubic-bezier(0.6, 0, 1, 1) 0.2s forwards;
+    z-index: 11;
+    /* que se vea POR ENCIMA del agujero */
+    position: relative;
+}
+
+#caja-iconos a.absorbido span {
+    animation: texto-tragar 0.6s ease-in 0.1s forwards;
+}
+
+/* Animación del icono: se encoge girando en espiral */
+@keyframes espiral-tragar {
+    0% {
+        transform: scale(1) rotate(0deg) translate(0, 0);
+        opacity: 1;
+        filter: none;
+    }
+
+    25% {
+        transform: scale(0.8) rotate(90deg) translate(15px, -10px);
+        opacity: 0.9;
+        filter: none;
+    }
+
+    50% {
+        transform: scale(0.5) rotate(250deg) translate(-10px, 5px);
+        opacity: 0.7;
+        filter: blur(1px);
+    }
+
+    75% {
+        transform: scale(0.2) rotate(500deg) translate(3px, -2px);
+        opacity: 0.3;
+        filter: blur(2px);
+    }
+
+    100% {
+        transform: scale(0) rotate(720deg) translate(0, 0);
+        opacity: 0;
+        filter: blur(4px);
+    }
+}
+
+/* Animación del texto debajo del icono: se encoge hacia arriba */
+@keyframes texto-tragar {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(0.5) translateY(-8px);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: scale(0) translateY(-15px);
+        opacity: 0;
+    }
+}
+
+/* ── Animaciones de CIERRE — el agujero se encoge y desaparece ──
+   Después de tragarse el icono, el agujero se cierra (implosiona)
+   y aparece un destello final de luz blanca */
+
+.an-cerrar-nucleo {
+    animation: agujero-cerrar 0.35s ease-in forwards;
+}
+
+.an-cerrar-disco {
+    animation: agujero-disco-cerrar 0.3s ease-in forwards;
+}
+
+.an-cerrar-resplandor {
+    animation: agujero-cerrar 0.4s ease-in forwards;
+}
+
+.an-destello-final {
+    animation: agujero-destello 0.5s ease-out forwards;
+}
+
+@keyframes agujero-cerrar {
+    from {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes agujero-disco-cerrar {
+    from {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(0) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@keyframes agujero-destello {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+
+    30% {
+        transform: translate(-50%, -50%) scale(0.7);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+}
+
+
+/* ==========================================================================
+   11. IMÁGENES DE LOS ICONOS Y SU TEXTO
+
+   Cada icono tiene una imagen (.icono-menu img) y un texto debajo (span).
+   clamp() hace que el tamaño se adapte: mínimo 50px, ideal 8% del ancho
+   de la pantalla, máximo 80px.
+   ========================================================================== */
+
+/* La imagen o SVG de cada icono */
+.icono-menu img,
+.icono-menu .icono-svg {
+    display: block;
+    margin: 0 auto 10px auto;
+    /* centrada, con 10px de espacio debajo */
+    width: clamp(50px, 8vw, 80px);
+    /* tamaño adaptable */
+    height: clamp(50px, 8vw, 80px);
+    opacity: 0.9;
+    /* ligeramente transparente */
+    transition: opacity 0.3s ease;
+    /* transición suave al cambiar opacidad */
+    color: #ffffff;
+    /* color heredado por currentColor en los SVG */
+}
+
+/* Cuando pasas el ratón encima del icono, se vuelve 100% visible */
+#caja-iconos a:hover .icono-menu img,
+#caja-iconos a:hover .icono-menu .icono-svg {
+    opacity: 1;
+}
+
+/* El texto debajo de cada icono (ej: "VÍDEOS", "POEMAS") */
+#caja-iconos span {
+    display: block;
+    letter-spacing: 1px;
+    /* espacio entre letras */
+    margin-top: 5px;
+    text-transform: uppercase;
+    /* todo en MAYÚSCULAS */
+    font-weight: 700 !important;
+    /* negrita fuerte */
+    /* Sombra oscura para legibilidad sobre fondo azul */
+    color: #ffffff;
+    text-shadow:
+        1px 2px 2px rgba(3, 4, 94, 0.6),
+        0 0 8px rgba(0, 119, 182, 0.4);
+}
+
+
+/* ==========================================================================
+   12. MARCO DE LAS FOTOS DE REDES SOCIALES
+
+   Cada foto de red social (YouTube, TikTok...) va dentro de un marco
+   con proporción 16:9 (como una tele panorámica).
+   ========================================================================== */
+
+/* El marco que envuelve cada foto */
+.marco-foto {
+    width: 100%;
+    max-width: min(50vw, 320px);
+    /* el menor entre 50% de la pantalla y 320px */
+    aspect-ratio: 16 / 9;
+    /* proporción de tele panorámica */
+    display: flex;
+    justify-content: center;
+    /* centrar la foto horizontalmente */
+    align-items: center;
+    /* centrar la foto verticalmente */
+    text-align: center;
+    position: relative;
+    margin: 20px auto;
+    /* centrado con margen arriba y abajo */
+    border: 3px solid #90e0ef;
+    /* borde azul escarcha */
+    border-radius: 40px;
+    /* esquinas redondeadas */
+    overflow: hidden;
+    /* necesario para que la foto respete el redondeo */
+    box-shadow: 0 0 12px rgba(0, 180, 216, 0.4), 0 0 25px rgba(3, 4, 94, 0.2);
+    /* brillo neón */
+}
+
+/* La foto en sí */
+.marco-foto img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    object-fit: cover !important;
+    /* la imagen rellena el marco sin deformarse */
+    display: block;
+}
+
+/* Contenido de texto de las tarjetas (si lo hubiera) */
+.contenido-texto-tarjeta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 1.5rem;
+}
+
+
+/* ==========================================================================
+   13. BORDE ELÉCTRICO — LA LÍNEA DE ELECTRICIDAD QUE RODEA LA CAJA
+
+   Usa un truco CSS avanzado:
+   - @property define una variable animable (el ángulo de giro)
+   - ::before crea una capa invisible DETRÁS de la caja con un degradado
+     de colores giratorio
+   - mask recorta esa capa para que solo se vea una línea fina (el borde)
+   - ::after crea otra capa más grande y borrosa (el resplandor)
+   ========================================================================== */
+
+/* Definir la variable --angulo-electrico como un ángulo que se puede animar */
+@property --angulo-electrico {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+/* ==========================================================================
+   LÍNEA ELÉCTRICA — Efecto de arco de neón en la línea separadora <hr>
+
+   Usa el mismo principio que el antiguo borde eléctrico:
+   - Un degradado cónico que gira continuamente
+   - ::before muestra la línea visible con colores vivos
+   - ::after añade un resplandor difuso detrás
+   - En vez de rodear una caja, aquí recorre una línea horizontal
+   ========================================================================== */
+
+/* La línea separadora con efecto eléctrico */
+.linea-electrica {
+    border: none;
+    /* quitar el borde por defecto del <hr> */
+    height: 4px;
+    /* grosor de la línea base */
+    background: #00b4d8;
+    /* turquesa surf de fondo */
+    width: 100%;
+    margin: 10px 0 0;
+    position: relative;
+    isolation: isolate;
+    border-radius: 2px;
+    /* Resplandor oceánico alrededor de la línea */
+    box-shadow:
+        0 0 8px rgba(0, 180, 216, 0.5),
+        0 0 20px rgba(144, 224, 239, 0.3),
+        0 0 40px rgba(3, 4, 94, 0.15);
+}
+
+/* ::before = LA LÍNEA ELÉCTRICA VISIBLE
+   Un degradado de colores que se desplaza horizontalmente sobre la línea.
+   Se usa un linear-gradient animado mediante la variable --angulo-electrico
+   que cambia la posición del degradado continuamente. */
+.linea-electrica::before {
+    content: '';
+    position: absolute;
+    inset: -3px -4px;
+    /* un poco más grande que la línea */
+    border-radius: 4px;
+    background: linear-gradient(calc(var(--angulo-electrico) * 2),
+            /* multiplicador reducido para movimiento suave */
+            #03045e,
+            #0077b6,
+            #00b4d8,
+            #90e0ef,
+            #caf0f8 55%,
+            #90e0ef 65%,
+            #00b4d8 80%,
+            #0077b6 90%,
+            #03045e);
+    animation:
+        girar-electrico 6s linear infinite,
+        arco-parpadeo 3s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+/* ::after = EL RESPLANDOR DIFUSO detrás de la línea eléctrica
+   Mismos colores pero más grande, borroso y transparente. */
+.linea-electrica::after {
+    content: '';
+    position: absolute;
+    inset: -6px -8px;
+    border-radius: 6px;
+    background: linear-gradient(calc(var(--angulo-electrico) * 2),
+            rgba(3, 4, 94, 0.3),
+            rgba(0, 119, 182, 0.4),
+            rgba(0, 180, 216, 0.35),
+            rgba(144, 224, 239, 0.25),
+            rgba(0, 119, 182, 0.3),
+            rgba(3, 4, 94, 0.3));
+    animation: girar-electrico 6s linear infinite;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+/* Animación: el ángulo gira de 0 a 360 grados (una vuelta completa) */
+@keyframes girar-electrico {
+    to {
+        --angulo-electrico: 360deg;
+    }
+}
+
+/* Respiración suave: la línea pulsa suavemente como olas */
+@keyframes arco-parpadeo {
+    0% {
+        opacity: 0.85;
+        filter: brightness(1);
+    }
+
+    50% {
+        opacity: 1;
+        filter: brightness(1.15);
+    }
+
+    100% {
+        opacity: 0.9;
+        filter: brightness(1.05);
+    }
+}
+
+
+/* ==========================================================================
+   14. REDES SOCIALES — EL CARRUSEL DE FOTOS (YouTube, TikTok, etc.)
+
+   Tiene dos cajas anidadas:
+
+   CAJA EXTERIOR (.seccion-redes / #caja-redes-sociales):
+     → Contiene TODO: el carrusel + las flechas de navegación
+     → Aquí pones el borde/color de fondo del bloque completo
+
+   CAJA INTERIOR (.carrusel-redes / #deslizador):
+     → Es el carrusel que se desliza horizontalmente
+     → Dentro tiene las "diapositivas" (una por cada red social)
+     → Solo se ve una diapositiva a la vez, las demás quedan ocultas
+
+   Estructura:
+   ┌─ .seccion-redes ──────────────────────────────────┐
+   │  ┌─ .carrusel-redes ─────────────────────────┐    │
+   │  │  [Diapositiva 1] [Diapositiva 2] [...]   │    │
+   │  └───────────────────────────────────────────┘    │
+   │  [← Flecha]                        [Flecha →]    │
+   └───────────────────────────────────────────────────┘
+   ========================================================================== */
+
+/* ── CAJA EXTERIOR: todo el bloque de redes sociales ── */
+.seccion-redes {
+    background-color: #03045e;
+    /* deep twilight */
+    padding: 0;
+    margin: 15px 15px 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 70px;
+    border: 2px solid rgba(144, 224, 239, 0.4);
+    /* borde frosted blue */
+    box-shadow:
+        0 0 15px rgba(0, 180, 216, 0.3),
+        0 0 35px rgba(144, 224, 239, 0.12),
+        0 0 60px rgba(3, 4, 94, 0.15);
+}
+
+/* ── CAJA INTERIOR: el carrusel que se desliza ──
+   NOTA: Este elemento tiene DOS nombres en el HTML:
+   - La clase .carrusel-redes (para CSS)
+   - El id #deslizador (para JavaScript)
+   Ambos apuntan al MISMO <div>, son el MISMO elemento */
+.carrusel-redes {
+    border-radius: 70px;
+}
+
+/* ── Contenedor de las flechas ← → debajo del carrusel ── */
+.flechas-navegacion {
+    display: flex;
+    justify-content: center;
+    /* flechas centradas */
+    gap: 15px;
+    /* espacio entre las dos flechas */
+    margin-top: auto;
+}
+
+/* ── Cada botón de flecha (estilo circular) ── */
+.flecha-nav {
+    background: black;
+    border: 1px solid rgba(255, 255, 255, 1);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* circular */
+    cursor: pointer;
+    /* el cursor cambia a "manita" */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: 0.3s;
+    /* transición suave de 0.3 segundos */
+}
+
+/* Cuando PULSAS la flecha (no solo pasar el ratón, sino clic) */
+.flecha-nav:active {
+    background: #caf0f8;
+    color: #03045e;
+}
+
+/* ── Posición de la caja de redes sociales ── */
+#caja-redes-sociales {
+    position: relative !important;
+    /* para que las flechas se posicionen dentro */
+}
+
+/* ── Flechas superpuestas sobre el carrusel ←  → ──
+   Están posicionadas de forma absoluta a los lados de la caja,
+   centradas verticalmente con top: 50% + transform: translateY(-50%) */
+#irAnterior,
+#irSiguiente {
+    position: absolute !important;
+    top: 50%;
+    transform: translateY(-50%);
+    /* centrar verticalmente */
+    z-index: 99;
+    /* por encima de las fotos */
+    cursor: pointer;
+    border: none;
+    background-color: #03045e !important;
+    /* deep twilight */
+    color: #90e0ef !important;
+    /* frosted blue */
+    border: 2px solid #90e0ef !important;
+    /* borde frosted blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(144, 224, 239, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    /* sin resaltado al tocar en móvil */
+    user-select: none;
+    /* no se puede seleccionar el texto de la flecha */
+}
+
+/* Tamaño del icono SVG dentro de cada flecha */
+#irAnterior svg,
+#irSiguiente svg {
+    width: 14px !important;
+    height: auto !important;
+    filter: none !important;
+}
+
+/* Posición: flecha izquierda a 15px del borde izquierdo */
+#irAnterior {
+    left: 15px !important;
+}
+
+/* Posición: flecha derecha a 15px del borde derecho */
+#irSiguiente {
+    right: 15px !important;
+}
+
+/* Estilo de las líneas del icono SVG de las flechas */
+#irAnterior svg path,
+#irSiguiente svg path {
+    stroke: currentColor;
+    stroke-width: 1px;
+    stroke-linejoin: round;
+}
+
+/* ── EL CARRUSEL PROPIAMENTE DICHO (por su ID #deslizador) ──
+   Este es el mismo elemento que .carrusel-redes, pero el JavaScript
+   lo busca por su ID "deslizador" para moverlo */
+#deslizador {
+    display: flex;
+    /* los slides van en fila horizontal */
+    flex-direction: row;
+    overflow-x: auto;
+    /* permite desplazamiento horizontal */
+    width: 100%;
+    height: auto;
+    scroll-snap-type: x mandatory;
+    /* al soltar, se "engancha" al slide más cercano */
+    scroll-behavior: auto;
+    /* el JavaScript controla si el scroll es suave o no */
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+    scrollbar-width: none;
+    /* ocultar la barra de scroll (Firefox) */
+    border: 4px solid #03045e;
+    /* borde deep twilight del carrusel */
+}
+
+/* Ocultar la barra de scroll (Chrome/Safari) */
+#deslizador::-webkit-scrollbar {
+    display: none;
+}
+
+/* ── Cada diapositiva (cada red social) ──
+   Cada una ocupa el 100% del ancho visible, así solo se ve una a la vez.
+   NOTA: "student-stories_slide-content-wrapper" es el nombre original
+   de la plantilla. NO lo cambies aquí si no lo cambias también en el HTML */
+.diapositiva-red {
+    flex: 0 0 100%;
+    /* ocupa exactamente el 100% del ancho */
+    width: 100%;
+    scroll-snap-align: start;
+    /* se engancha al inicio al hacer scroll */
+    scroll-snap-stop: always;
+    /* siempre para en cada diapositiva */
+    box-sizing: border-box;
+    margin: 0 !important;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    /* centrar la foto horizontalmente */
+    align-items: center;
+    /* centrar la foto verticalmente */
+
+}
+
+/* Cuando pasas el ratón por las flechas, más sombra */
+#irAnterior:hover,
+#irSiguiente:hover {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 0 18px rgba(144, 224, 239, 0.5), 0 0 35px rgba(0, 180, 216, 0.2);
+}
+
+/* Cuando pulsas las flechas, se agrandan un poco */
+#irAnterior:active,
+#irSiguiente:active {
+    transform: translateY(-50%) scale(1.3);
+}
+
+
+/* ==========================================================================
+   15. BLOQUE INFERIOR — LA CAJA ROSA CON LOS BOTONES EMOJI
+
+   La caja de abajo con fondo rosa, borde negro, sombra amarilla,
+   y los copos de nieve cayendo. Dentro tiene la "caja-noche" negra
+   con los botones emoji y el mensaje secreto.
+   ========================================================================== */
+
+/* La caja exterior oceánica */
+.bloque-inferior {
+    background-color: #0077b6;
+    border: 3px solid #03045e;
+    border-radius: 16px;
+    margin: 10px 15px 40px;
+    padding: 0px 12px 12px 12px;
+    box-shadow: 6px 6px 0px #00b4d8;
+    position: relative;
+    overflow: clip;
+}
+
+/* La caja interior (donde van los botones y el mensaje) */
+.caja-noche {
+    background: #03045e;
+    border: 2px solid rgba(144, 224, 239, 0.2);
+    border-radius: 12px;
+    padding: 14px;
+    margin-top: 12px;
+    position: relative;
+}
+
+/* Contenedor del mensaje mágico */
+.texto-diario-wrap {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease, margin 0.5s ease, padding 0.5s ease;
+    margin: 0;
+    padding: 0;
+}
+
+.caja-noche.expandida .texto-diario-wrap {
+    max-height: 200px;
+    margin-top: 18px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, rgba(0, 119, 182, 0.15), rgba(144, 224, 239, 0.08));
+    border: 1px solid rgba(144, 224, 239, 0.25);
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+}
+
+/* El texto del mensaje mágico */
+.texto-diario {
+    font-family: 'Bruno Ace SC', sans-serif;
+    font-size: 0.85em;
+    margin: 0;
+    line-height: 1.8;
+    color: #caf0f8;
+    letter-spacing: 0.04em;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.6s ease 0.15s, transform 0.6s ease 0.15s;
+}
+
+.caja-noche.expandida .texto-diario {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   16. EFECTO GLITCH EN EL BLOQUE INFERIOR
+   ========================================================================== */
+
+/* La clase .glitch-activo se añade/quita por JS cada 4-7 segundos */
+@keyframes glitch-micro {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+        filter: none;
+    }
+
+    10% {
+        transform: translate(-4px, 1px);
+        opacity: 0.85;
+        filter: none;
+    }
+
+    20% {
+        transform: translate(3px, -1px);
+        opacity: 1;
+        text-shadow: -2px 0 #00b4d8, 2px 0 #90e0ef;
+    }
+
+    30% {
+        transform: translate(-2px, 0);
+        opacity: 0.9;
+        text-shadow: 2px 0 #00b4d8, -2px 0 #caf0f8;
+    }
+
+    50% {
+        transform: translate(5px, 1px);
+        opacity: 0.8;
+        text-shadow: -3px 0 #00b4d8, 3px 0 #90e0ef;
+    }
+
+    60% {
+        transform: translate(-1px, -1px);
+        opacity: 1;
+        filter: hue-rotate(20deg);
+    }
+
+    80% {
+        transform: translate(2px, 0);
+        opacity: 0.92;
+        text-shadow: 1px 0 #caf0f8, -1px 0 #00b4d8;
+    }
+
+    100% {
+        transform: translate(0, 0);
+        opacity: 1;
+        filter: none;
+        text-shadow: none;
+    }
+}
+
+.bloque-inferior.glitch-activo {
+    animation: glitch-micro 0.4s steps(4) forwards;
+}
+
+
+/* ==========================================================================
+   17. BOTONES EMOJI — LOS 5 BOTONES DE PODERES
+
+   🍎 Gravedad Cero  — todo cae al vacío
+   💫 Mensaje Mágico  — aparece un mensaje secreto
+   🫲 Volver Arriba   — sube al principio de la página
+   💡 Modo Disco      — los colores de la página giran
+   👻 Modo Fantasma   — todo se vuelve transparente y borroso
+   ========================================================================== */
+
+/* La fila de botones emoji */
+.emojis-poderes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* que los botones salten de fila si no caben en móvil */
+    gap: 10px;
+    /* espacio entre botones */
+    font-size: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Estilo base de cada botón */
+.emoji-boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: 0.3s;
+    background: #90e0ef;
+    /* frosted blue */
+    border: 4px solid #03045e;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: #03045e;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #03045e;
+}
+
+/* En móvil: botones más compactos para que quepan los 5 en una fila */
+@media (max-width: 480px) {
+    .emojis-poderes {
+        gap: 6px;
+    }
+
+    .emoji-boton {
+        padding: 8px 10px;
+        border-width: 3px;
+    }
+}
+
+/* Al pasar el ratón: el botón "se hunde" (se mueve y pierde la sombra) */
+.emoji-boton:hover {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px #03045e;
+}
+
+/* Cuando el botón está activo (efecto encendido): se queda hundido */
+.emoji-boton.boton-activo {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px #03045e;
+    filter: brightness(1.2);
+}
+
+/* Colores individuales de cada botón */
+.e-manzana {
+    background: #00b4d8;
+    box-shadow: 4px 4px 0px #03045e;
+}
+
+/* 🍎 turquoise surf */
+.e-magia {
+    background: #caf0f8;
+    box-shadow: 4px 4px 0px #0077b6;
+}
+
+/* 💫 light cyan */
+.e-abrazo {
+    transform: scale(1.1);
+    background: #90e0ef;
+    border-width: 5px;
+}
+
+/* 🫲 frosted blue, más grande */
+.e-bombilla {
+    background: #0077b6;
+    box-shadow: 4px 4px 0px #03045e;
+    color: #caf0f8;
+}
+
+/* 💡 teal blue */
+.e-fantasma {
+    background: #caf0f8;
+    box-shadow: 4px 4px 0px #0077b6;
+}
+
+/* 👻 light cyan */
+
+/* Animación del botón abrazo cuando está activo */
+.e-abrazo.animando {
+    animation: latir 1s ease-out;
+}
+
+@keyframes latir {
+    0% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(1.5);
+        background: #caf0f8;
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+
+/* ==========================================================================
+   18. EFECTOS ESPECIALES DE LOS BOTONES EMOJI
+
+   Cada botón activa/desactiva una clase CSS en el HTML.
+   El JavaScript hace el toggle (activar/desactivar), y el CSS
+   define QUÉ PASA visualmente cuando esa clase está activa.
+   ========================================================================== */
+
+/* ── EFECTO: GRAVEDAD CERO ──
+   Todos los hijos directos de .caja-titulo tienen una transición,
+   así cuando el JavaScript les cambia el transform, caen suavemente. */
+.caja-titulo>* {
+    transition: transform 1.5s cubic-bezier(0.55, 0, 1, 0.45), opacity 1s ease;
+}
+
+/* Cuando la gravedad está activa, los elementos se vuelven semitransparentes */
+.gravedad-activa>* {
+    opacity: 0.6;
+}
+
+/* ── EFECTO: MENSAJE MÁGICO ──
+   La caja brilla suavemente al expandirse */
+.caja-noche.expandida {
+    border-color: rgba(144, 224, 239, 0.5);
+    box-shadow: 0 0 15px rgba(0, 180, 216, 0.3), 0 0 30px rgba(144, 224, 239, 0.1);
+    transition: box-shadow 0.5s ease, border-color 0.5s ease;
+}
+
+/* ── EFECTO: FILTRO CÁLIDO (☀️) ──
+   Aplica sepia + tono cálido sobre toda la página para
+   reducir la luz azul. Transición suave al activar/desactivar. */
+body.filtro-calido {
+    filter: sepia(0.35) saturate(1.2) brightness(0.95) hue-rotate(-10deg);
+    transition: filter 0.6s ease;
+}
+
+/* ── EFECTO: MÚSICA ACTIVA (🎵) ──
+   El botón de música brilla y muestra el nombre de la pista */
+.emoji-boton.musica-activa {
+    background: #00b4d8 !important;
+    box-shadow: 0 0 12px rgba(0, 180, 216, 0.6), 4px 4px 0px #03045e !important;
+    animation: pulso-musica 1.5s ease-in-out infinite alternate;
+}
+
+.emoji-boton.musica-activa::after {
+    content: attr(data-pista);
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    font-family: 'Bruno Ace SC', sans-serif;
+    color: #caf0f8;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 6px rgba(0, 180, 216, 0.5);
+}
+
+@keyframes pulso-musica {
+    from {
+        box-shadow: 0 0 8px rgba(0, 180, 216, 0.4), 4px 4px 0px #03045e;
+    }
+
+    to {
+        box-shadow: 0 0 18px rgba(144, 224, 239, 0.7), 4px 4px 0px #03045e;
+    }
+}

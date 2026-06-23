@@ -1,0 +1,1608 @@
+{
+  "inicio": {
+    "orador": "DUENDE MÁGICO",
+    "texto": "Bienvenido a tu historia interactiva.<br>Aquí eliges la realidad. Un sofisticado algoritmo ilustrado en mecánica cuántica.<br>Probemos si el sistema de decisiones funciona.<br><br>Confirmación del sistema: ¿sí o vale?",
+    "imagen": "mago_bienvenida.png",
+    "opciones": [
+      {
+        "texto": "✔ Sí",
+        "siguiente": "tutorial_botones"
+      },
+      {
+        "texto": "✔ Vale",
+        "siguiente": "tutorial_botones"
+      }
+    ],
+    "final": false
+  },
+  "tutorial_botones": {
+    "orador": "DUENDE MÁGICO",
+    "texto": "«Estos botones representan líneas temporales. Se activan cada vez que completas una. Tienes que confiar en ti porque si no confias no hay confianza cuántica. Cada elección modifica la dimensión en la que habitas. Y al cambiar de dimensión… cambias también el futuro.»",
+    "imagen": "mago_botones.png",
+    "opciones": [
+      {
+        "texto": "Crear personaje",
+        "siguiente": "CREAR_PERSONAJE_TRIGGER"
+      },
+      {
+        "texto": "Omitir creación",
+        "siguiente": "entrada_sistema"
+      }
+    ],
+    "final": false
+  },
+  "entrada_sistema": {
+    "orador": "SISTEMA",
+    "texto": "Iniciando sistema... Cargando frecuencia del elemento <span class='highlight'>{elemento}</span>. La puerta oscura del pasillo se abre lentamente ante ti.",
+    "imagen": "https://www.youtube.com/watch?v=Xt2HyCEepRQ",
+    "opciones": [
+      {
+        "texto": "Avanzar por el pasillo",
+        "siguiente": "encuentro_julia"
+      }
+    ],
+    "final": false
+  },
+  "encuentro_julia": {
+    "orador": "JULIA",
+    "texto": "—Hola, soy Julia. Pasa por aquí, el maestro te atenderá enseguida.<br><br><span class='highlight'>La ves leyendo un elegante diploma enmarcado que cuelga en la pared:</span><br><b>'Bienvenido a la consulta de Mamalachi<br>Tu vidente de confianza.<br>Licenciado en la Universidad de Pycomagia Interactiva de murcia.'</b>",
+    "imagen": "entrada_oscura.jpg",
+    "opciones": [
+      {
+        "texto": "Seguir a Julia hacia el salón",
+        "siguiente": "el_salon"
+      }
+    ],
+    "final": false
+  },
+  "el_salon": {
+    "orador": "NARRADOR",
+    "texto": "Entras al salón y te detienes en seco. Frente a ti ves a <span class='highlight'>Adrián, Julia y Jairo</span> jugando al Twister mágico mientras hacen terapia de pareja. El ambiente está lleno de luces de colores, giros imposibles y bastante tensión emocional.",
+    "imagen": "twister_magico.png",
+    "opciones": [
+      {
+        "texto": "Ignorar la terapia y continuar por el pasillo",
+        "siguiente": "portal_pasillo"
+      }
+    ],
+    "final": false
+  },
+  "portal_pasillo": {
+    "orador": "NARRADOR",
+    "texto": "Decides ignorar a los jugadores y continúas caminando por el pasillo. De repente, el espacio-tiempo se desgarra frente a ti y <span class='highlight'>un portal dimensional giratorio</span> se abre en el aire con un zumbido cósmico. Julia se acerca y te invita a elegir su color.",
+    "imagen": "entrada_oscura.jpg",
+    "opciones": [
+      {
+        "texto": "🟢 Elegir Portal Verde (Estilo Rick y Morty)",
+        "siguiente": "portal_verde_elegido",
+        "color": "green"
+      },
+      {
+        "texto": "🔵 Elegir Portal Azul (Energía Cósmica)",
+        "siguiente": "portal_azul_elegido",
+        "color": "blue"
+      },
+      {
+        "texto": "🟣 Elegir Portal Púrpura (Magia Dimensional)",
+        "siguiente": "portal_purple_elegido",
+        "color": "purple"
+      }
+    ],
+    "final": false
+  },
+  "portal_verde_elegido": {
+    "orador": "JULIA",
+    "texto": "El portal brilla con un verde ácido e inestable, similar al de una pistola de portales interdimensionales. Julia se echa a reír: '¡Oh, has visto Rick y Morty! Cuidado con las dimensiones cronenberg... Aunque la ciencia mística nos ampara. Toma, mira esto.'",
+    "imagen": "entrada_oscura.jpg",
+    "opciones": [
+      {
+        "texto": "Observar el pergamino flotante",
+        "siguiente": "contrato_firma"
+      }
+    ],
+    "final": false
+  },
+  "portal_azul_elegido": {
+    "orador": "JULIA",
+    "texto": "El portal gira en un tono azul cerúleo profundo, emitiendo ondas de energía pacífica y estable. Julia sonríe complacida: 'Una frecuencia de vibración muy limpia y armónica. Estás en perfecta sintonía cuántica. Mira lo que sale de ahí.'",
+    "imagen": "entrada_oscura.jpg",
+    "opciones": [
+      {
+        "texto": "Observar el pergamino flotante",
+        "siguiente": "contrato_firma"
+      }
+    ],
+    "final": false
+  },
+  "portal_purple_elegido": {
+    "orador": "JULIA",
+    "texto": "El portal resplandece en un púrpura místico y oscuro. Julia te mira intrigada: 'Una frecuencia de transmutación y misterio profundo. La curiosidad es tu motor cuántico. Mira esto antes de dar el paso.'",
+    "imagen": "entrada_oscura.jpg",
+    "opciones": [
+      {
+        "texto": "Observar el pergamino flotante",
+        "siguiente": "contrato_firma"
+      }
+    ],
+    "final": false
+  },
+  "contrato_firma": {
+    "orador": "PORTAL DIMENSIONAL",
+    "texto": "Antes de cruzar, un pergamino mágico flota desde el vórtice de luz. Es un documento formal redactado en caligrafía antigua: <b>'Acuerdo de Exención de Responsabilidad Interdimensional y Asunción de Riesgos Cuánticos'</b>.<br><br>Debes firmar reconociendo que cualquier transmutación molecular, pérdida de coherencia o cambio temporal es bajo tu responsabilidad.",
+    "imagen": "contrato_magico.png",
+    "opciones": [
+      {
+        "texto": "Firmar el descargo",
+        "siguiente": "avanzar_portal"
+      },
+      {
+        "texto": "No firmar",
+        "siguiente": "no_entrar_portal"
+      }
+    ],
+    "final": false
+  },
+  "avanzar_portal": {
+    "orador": "SISTEMA",
+    "texto": "Firmas con decisión usando la pluma dorada. El descargo de responsabilidad brilla con luz azulada y se disuelve en el portal. Te sitúas frente al torbellino de luces cuánticas. ¿Qué decides hacer?",
+    "imagen": "entrada_oscura.jpg",
+    "opciones": [
+      {
+        "texto": "Entrar al portal",
+        "siguiente": "sala_magica_mamalachi"
+      },
+      {
+        "texto": "No entrar y quedarse observando",
+        "siguiente": "no_entrar_portal"
+      }
+    ],
+    "final": false
+  },
+  "sala_magica_mamalachi": {
+    "orador": "MAMALACHI",
+    "texto": "Cruzas el umbral y la distorsión se desvanece. Te encuentras en una sala mágica suspendida en el cosmos, rodeada de constelaciones flotantes. Allí, sentado en un trono de cristal, el Vidente Mamalachi te observa en silencio y te hace un gesto pausado con la mano para que te sientes frente a él.",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Sentarse frente a Mamalachi",
+        "siguiente": "sentarse_mamalachi"
+      }
+    ],
+    "final": false
+  },
+  "sentarse_mamalachi": {
+    "orador": "MAMALACHI",
+    "texto": "Te sientas en la silla de cristal flotante. Mamalachi cierra los ojos y sonríe con sabiduría. 'Tus elecciones cuánticas te han guiado por el camino del valor. Eres digno de desvelar los secretos del multiverso.'",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Comenzar la consulta cuántica",
+        "siguiente": "mamalachi_pregunta"
+      }
+    ],
+    "final": false
+  },
+  "no_entrar_portal": {
+    "orador": "NARRADOR",
+    "texto": "Decides no cruzar el portal y dar la espalda a la distorsión. Al dar la vuelta, ves que la terapia de pareja ha terminado. Julia se acerca a ti con paso firme, sonriendo misteriosamente. 'Iba a jugar mi turno justo ahora... ¿por qué no te unes?'",
+    "imagen": "entrada_oscura.jpg",
+    "opciones": [
+      {
+        "texto": "Unirse al Twister mágico",
+        "siguiente": "unirse_twister"
+      }
+    ],
+    "final": false
+  },
+  "unirse_twister": {
+    "orador": "JULIA",
+    "texto": "Julia te entrega un pequeño sobre de plástico transparente con globos circulares desinflados de colores neón. 'Toma, son por protección. En el Twister dimensional las reglas son físicas... y metafísicas.' Te arrastran al tablero sin que tengas opción de negarte.",
+    "imagen": "globos_desinflados.png",
+    "opciones": [
+      {
+        "texto": "Jugar la partida",
+        "siguiente": "terapia_twister"
+      }
+    ],
+    "final": false
+  },
+  "terapia_twister": {
+    "orador": "NARRADOR",
+    "texto": "Mano izquierda en azul, pie derecho en verde... Te enredas entre Adrián, Julia y Jairo en posturas imposibles. La tensión de la terapia de pareja y la energía del tablero cuántico te sumen en un profundo y extraño letargo.",
+    "imagen": "twister_magico.png",
+    "opciones": [
+      {
+        "texto": "Dejarse llevar por el sueño",
+        "siguiente": "cama_durmiendo"
+      }
+    ],
+    "final": false
+  },
+  "cama_durmiendo": {
+    "orador": "NARRADOR",
+    "texto": "Te despiertas de golpe. Te encuentras en una gigantesca cama de matrimonio. A tu lado, Adrián, Julia y Jairo duermen plácidamente abrazados en un pacífico sueño post-terapia. Con sumo cuidado para no despertarlos, te deslizas fuera de las sábanas y te diriges silenciosamente hacia la puerta.",
+    "imagen": "cama_durmiendo.png",
+    "opciones": [
+      {
+        "texto": "Salir por la puerta y escapar",
+        "siguiente": "final_escape_twister"
+      }
+    ],
+    "final": false
+  },
+  "final_escape_twister": {
+    "orador": "SISTEMA",
+    "texto": "Abres la puerta y sales al aire fresco de la mañana. Has escapado de la locura de la terapia de pareja interdimensional. Quizás no cruzaste el portal cuántico, pero has sobrevivido con éxito a tu dimensión.",
+    "imagen": "escape_manana.png",
+    "opciones": [],
+    "final": true,
+    "tituloFinal": "FIN: El Escape Silencioso"
+  },
+  "inicio_2": {
+    "orador": "DUENDE MÁGICO",
+    "texto": "Bienvenido a tu his... <span class='highlight' style='color:#ff0033;'>¿Qué ha sido ese destello?</span> El universo es muy universal, y los astros giran porque están en movimiento constante. Un momento, esta bienvenida me resulta familiar. ¿El algoritmo cuántico ha entrado en bucle?",
+    "imagen": "mago_bienvenida.png",
+    "opciones": [
+      {
+        "texto": "✔ Tratar de estabilizar la realidad",
+        "siguiente": "tutorial_botones_2"
+      },
+      {
+        "texto": "✔ Aceptar la anomalía cuántica",
+        "siguiente": "tutorial_botones_2"
+      }
+    ],
+    "final": false
+  },
+  "tutorial_botones_2": {
+    "orador": "DUENDE MÁGICO",
+    "texto": "¡Los botones temporales parpadean sin control! Para avanzar hacia adelante, primero tienes que dejar de ir hacia atrás. No hay tiempo para configurar tu esencia ni crear personajes ahora. El portal se está colapsando en el pasillo... ¡Rápido, entra al sistema antes de que sea tarde!",
+    "imagen": "mago_botones.png",
+    "opciones": [
+      {
+        "texto": "Entrar al sistema de inmediato",
+        "siguiente": "entrada_sistema_2"
+      }
+    ],
+    "final": false
+  },
+  "entrada_sistema_2": {
+    "orador": "SISTEMA",
+    "texto": "ALERTA: Fuga cuántica descontrolada. El pasillo se tiñe de un color carmesí iridiscente y la puerta al final se abre de golpe con un chillido metálico.",
+    "imagen": "entrada_oscura.jpg",
+    "opciones": [
+      {
+        "texto": "Correr por el pasillo",
+        "siguiente": "encuentro_julia_2"
+      }
+    ],
+    "final": false
+  },
+  "encuentro_julia_2": {
+    "orador": "JULIA",
+    "texto": "Julia te mira con ojos desorbitados y voz temblorosa: '¡El bucle ha colapsado! ¡El maestro nos advirtió sobre esto! ¡Pasa rápido!'<br><br><span class='highlight'>El suelo comienza a vibrar intensamente.</span>",
+    "imagen": "entrada_oscura.jpg",
+    "opciones": [
+      {
+        "texto": "Entrar al salón",
+        "siguiente": "el_salon_2"
+      }
+    ],
+    "final": false
+  },
+  "el_salon_2": {
+    "orador": "NARRADOR",
+    "texto": "Entras al salón alarmado. Esta vez no están jugando al Twister. Ves a Julia y Jairo escayolándole una pierna a Adrián, que tiene la cara tiznada de ceniza y grita de dolor. Se entiende perfectamente que ha sufrido un accidente cuántico debido al desborde energético del elemento Fuego.",
+    "imagen": "twister_magico.png",
+    "opciones": [
+      {
+        "texto": "Avanzar hacia el fondo del salón",
+        "siguiente": "portal_huida_2"
+      }
+    ],
+    "final": false
+  },
+  "portal_huida_2": {
+    "orador": "NARRADOR",
+    "texto": "Una brecha cuántica colosal se rasga en la pared del fondo con un zumbido ensordecedor. Sin dudarlo, Julia corre y salta de cabeza a través del portal dimensional. ¡La habitación entera empieza a ser succionada por el vórtice!",
+    "imagen": "entrada_oscura.jpg",
+    "opciones": [
+      {
+        "texto": "Saltar al portal (Cámara POV)",
+        "siguiente": "portal_cinematic_2"
+      }
+    ],
+    "final": false
+  },
+  "portal_cinematic_2": {
+    "orador": "SISTEMA",
+    "texto": "Cruzando el portal... Incoherencia cuántica detectada... Reconfigurando espacio-tiempo...",
+    "imagen": "entrada_oscura.jpg",
+    "opciones": [
+      {
+        "texto": "Continuar",
+        "siguiente": "sala_mamalachi_reunion"
+      }
+    ],
+    "final": false
+  },
+  "sala_mamalachi_reunion": {
+    "orador": "NARRADOR",
+    "texto": "Caes sobre un suelo de cristal templado suspendido sobre una galaxia espiral en constante movimiento. De repente, ráfagas de luz cósmica y destellos de partículas comienzan a girar alrededor del trono central en una deslumbrante teletransportación cuántica...",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Observar la teletransportación",
+        "siguiente": "mamalachi_pregunta"
+      }
+    ],
+    "final": false
+  },
+  "mamalachi_pregunta": {
+    "orador": "MAMALACHI",
+    "texto": "El Vidente Mamalachi se materializa en el trono. Abre sus ojos brillantes y te mira fijamente, llamándote por tu esencia cuántica:<br><br>'Dime, {nombre}... ¿qué es lo que buscas descifrar en el tejido de tu porvenir? Y recuerda que no es cosa menor, dicho de otra manera es cosa mayor. Toma asiento.'<br><br><span class='highlight'>Te sientas frente a él de inmediato y sin rechistar.</span>",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "🟢 Preguntar por la Salud (Bienestar Bio-Cuántico)",
+        "siguiente": "mamalachi_salud_inicio",
+        "color": "green"
+      },
+      {
+        "texto": "🔴 Preguntar por el Amor (Entrelazamiento Sentimental)",
+        "siguiente": "rama_amor",
+        "color": "red"
+      },
+      {
+        "texto": "🟢 Preguntar por el Dinero (Fluctuación Probabilística)",
+        "siguiente": "rama_dinero",
+        "color": "green"
+      }
+    ],
+    "final": false
+  },
+  "rama_amor": {
+    "orador": "MAMALACHI",
+    "texto": "«El amor en el multiverso no es más que el entrelazamiento cuántico de dos almas. Al fin y al cabo, somos sentimientos y tenemos seres humano. Tus hilos sentimentales están en resonancia armónica, pero recuerda que el Twister del destino es caprichoso...»",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "✋ Enseñar la mano",
+        "siguiente": "amor_inicio_seleccionado"
+      },
+      {
+        "texto": "🔮 Usar el péndulo",
+        "siguiente": "amor_inicio_seleccionado"
+      }
+    ],
+    "final": false
+  },
+  "rama_dinero": {
+    "orador": "MAMALACHI",
+    "texto": "«La abundancia material es una fluctuación energética de la probabilidad cuántica. Veo prosperidad dorada fluyendo hacia tu realidad, pero primero debemos saldar la sesión...»",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Concluir la tarifa de consulta",
+        "siguiente": "dinero_tarifa_inicio"
+      }
+    ],
+    "final": false
+  },
+  "dinero_inversiones_seguras": {
+    "orador": "MAMALACHI",
+    "texto": "«Las inversiones seguras te darán una vida cómoda y sin grandes sobresaltos. Tu dinero crecerá de forma lineal y predecible, como la física clásica. Disfruta de tu estabilidad burguesa».",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [],
+    "final": true,
+    "tituloFinal": "EL FUTURO: Dinero Seguro"
+  },
+  "dinero_cripto_cuanticas": {
+    "orador": "MAMALACHI",
+    "texto": "«Las criptomonedas cuánticas son altamente inestables, fluctuando entre la riqueza y la bancarrota absoluta en cuestión de nanosegundos. Has ganado millones, pero al observarlos en tu cuenta... han colapsado a cero. Trágico».",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [],
+    "final": true,
+    "tituloFinal": "EL FUTURO: Colapso Cripto"
+  },
+  "dinero_aprender_invertir": {
+    "orador": "MAMALACHI",
+    "texto": "«¿Quieres aprender el verdadero arte de la inversión cuántica? Para entender el presente, debes financiar el origen del multiverso. Abre una puerta al pasado y ayuda al creador de esta simulación».",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Viajar al pasado (Consulta Inicial)",
+        "siguiente": "dinero_viaje_pasado"
+      }
+    ],
+    "final": false
+  },
+  "dinero_viaje_pasado": {
+    "orador": "SISTEMA",
+    "texto": "Viajando en el tiempo... Regresando al inicio del desarrollo en 2026... <br><br>Te encuentras en una habitación oscura. Frente a una pantalla con código fuente iluminando su rostro, ves a <b>Adrián Miranda</b> bostezando y programando esta misma historia cuántica interactiva.",
+    "imagen": "entrada_oscura.png",
+    "opciones": [
+      {
+        "texto": "Entregar 5 euros virtuales para financiar el proyecto",
+        "siguiente": "dinero_adrian_pagado"
+      },
+      {
+        "texto": "No dar nada y volver al presente",
+        "siguiente": "dinero_volver_presente"
+      }
+    ],
+    "final": false
+  },
+  "dinero_adrian_pagado": {
+    "orador": "ADRIÁN MIRANDA",
+    "texto": "«¡Guau, gracias por los 5€ virtuales! Con esto podré financiar los efectos especiales y el café para terminar este proyecto cuántico interactivo. Tu generosidad ha quedado registrada en la memoria permanente del multiverso».",
+    "imagen": "entrada_oscura.png",
+    "opciones": [
+      {
+        "texto": "Regresar al presente en la sala de Mamalachi",
+        "siguiente": "dinero_fin_exito"
+      }
+    ],
+    "final": false
+  },
+  "dinero_fin_exito": {
+    "orador": "MAMALACHI",
+    "texto": "«Tu inversión en las líneas temporales primigenias ha sido completada. La abundancia material fluye de vuelta hacia ti en forma de karma cuántico. Ve en paz».",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [],
+    "final": true,
+    "tituloFinal": "EL FUTURO: Rama del Dinero y Co-Financiador"
+  },
+  "dinero_volver_presente": {
+    "orador": "MAMALACHI",
+    "texto": "«Has vuelto con las manos vacías. La avaricia rompe el saco cuántico. Tendrás prosperidad ordinaria, pero no trascendencia cuántica».",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [],
+    "final": true,
+    "tituloFinal": "EL FUTURO: Dinero Convencional"
+  },
+  "mamalachi_salud_inicio": {
+    "orador": "MAMALACHI",
+    "texto": "Cuando mencionas la palabra Salud, el Vidente Mamalachi cambia por completo su energía. Sus ojos se abren desmesuradamente, tornándose de un amarillo brillante como dos portales de transporte. El ambiente se transforma: te encuentras frente a un Oráculo Todopoderoso rodeado de un aura dorada divina.<br><br>—La salud es el equilibrio bio-cuántico del organismo. Aunque soy un vidente místico, mis predicciones siempre se apoyan en los postulados rigurosos de la ciencia cuántica... —dice Mamalachi con tono muy serio.",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Explicar ciencia detrás de esto",
+        "siguiente": "salud_explicacion_ciencia"
+      },
+      {
+        "texto": "Saltar la ciencia e ir al grano",
+        "siguiente": "salud_sub_ramas"
+      }
+    ],
+    "final": false
+  },
+  "salud_explicacion_ciencia": {
+    "orador": "MAMALACHI",
+    "texto": "—Verás, la superposición de estados a nivel subatómico significa que tu bienestar físico es una función de probabilidad de tus mitocondrias cuánticas... Como suelo decir en mis ponencias académicas: si no os portais bien en la ponencias es que os portais mal en las ponencias. O en términos más sencillos: si tu cuerpo fuera un ordenador, ¡tus células tendrían demasiadas pestañas de Chrome abiertas! ¡Jajaja! Un chiste cuántico clásico. Pero bueno, centrémonos.",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Continuar hacia el porvenir",
+        "siguiente": "salud_sub_ramas"
+      }
+    ],
+    "final": false
+  },
+  "salud_sub_ramas": {
+    "orador": "MAMALACHI",
+    "texto": "Mamalachi vuelve a entornar sus ojos de portal y te pregunta: 'Para evaluar tu salud bio-cuántica, ¿en qué área deseas enfocar tu energía?'",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Mente",
+        "siguiente": "salud_mente"
+      },
+      {
+        "texto": "Cuerpo",
+        "siguiente": "salud_cuerpo"
+      },
+      {
+        "texto": "Espíritu",
+        "siguiente": "salud_espiritu"
+      }
+    ],
+    "final": false
+  },
+  "salud_mente": {
+    "orador": "MAMALACHI",
+    "texto": "*(Cierra los ojos y respira ruidoso)* «La mente es un ático lleno de trastos viejos. Si te descuidas, tropiezas. Tu recuerda si te agobias no te agobies, suelta el mando del dispositivo cuántico. Pero antes, dime: ¿cómo te sientes hoy?»",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Tengo mucha ansiedad",
+        "siguiente": "mente_anx_bungee"
+      },
+      {
+        "texto": "Me duele la cabeza por pensar tanto",
+        "siguiente": "mente_anx_knife"
+      }
+    ],
+    "final": false
+  },
+  "mente_meditacion_360": {
+    "orador": "SISTEMA",
+    "texto": "Iniciando entorno inmersivo de meditación 360°... Relájate y explora tu entorno.",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Finalizar Meditación",
+        "siguiente": "mente_meditacion_decision"
+      }
+    ],
+    "final": false
+  },
+  "mente_meditacion_decision": {
+    "orador": "MAMALACHI",
+    "texto": "Abres los ojos lentamente. Mamalachi te observa con una leve sonrisa de satisfacción. «¿Cómo te sientes tras este viaje por el vacío de tu procesador mental?»",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "He logrado vaciar mi mente.",
+        "siguiente": "mente_jumpscare_cojin"
+      },
+      {
+        "texto": "Me he quedado dormido.",
+        "siguiente": "mente_jumpscare_cojin"
+      }
+    ],
+    "final": false
+  },
+  "mente_exito": {
+    "orador": "MAMALACHI",
+    "texto": "«Excelente. Siento que tus mitocondrias cuánticas han recuperado su coherencia de fase. Estás listo para limpiar tu templo físico.» Mamalachi te entrega un pendrive holográfico con e-books de salud corporal.",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Avanzar a la Dimensión Cuerpo",
+        "siguiente": "salud_cuerpo"
+      }
+    ],
+    "final": false
+  },
+  "mente_dormido": {
+    "orador": "MAMALACHI",
+    "texto": "¡BOCINA DE FRACASO! Mamalachi te da un capón virtual: «¡Pringado! Te has quedado frito. Tu espiritualidad es equivalente a la de una patata frita. En fin, no tenemos todo el día cuántico, ¡al cuerpo!»",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Avanzar a la Dimensión Cuerpo (a la fuerza)",
+        "siguiente": "salud_cuerpo"
+      }
+    ],
+    "final": false
+  },
+  "salud_cuerpo": {
+    "orador": "MAMALACHI",
+    "texto": "«Ahora toca el templo. Mover el esqueleto, que el músculo atrofia el espíritu. Pero antes de ejercitarte, déjame ver tus hábitos circadianos...»",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Realizar el Test del Hábito",
+        "siguiente": "cuerpo_test_habito"
+      }
+    ],
+    "final": false
+  },
+  "cuerpo_aerobic_video": {
+    "orador": "SISTEMA",
+    "texto": "Iniciando clase de aerobic cuántico ochentero...",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Pasar al entrenamiento de fuerza",
+        "siguiente": "cuerpo_minijuego_intro"
+      }
+    ],
+    "final": false
+  },
+  "cuerpo_minijuego_intro": {
+    "orador": "MAMALACHI",
+    "texto": "«¡Vamos! No te detengas ahora. Es hora de levantar hierro virtual del suelo. Demuestra que tu templo corporal tiene energía. ¡Agáchate y levanta lo que encuentres!»",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Entrar al modo levantar objetos",
+        "siguiente": "cuerpo_minijuego_play"
+      }
+    ],
+    "final": false
+  },
+  "cuerpo_minijuego_play": {
+    "orador": "SISTEMA",
+    "texto": "Modo interactivo de fuerza activado. Arrastra los objetos hacia arriba para levantarlos.",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Avanzar tras levantar los objetos",
+        "siguiente": "cuerpo_decision_entrenamiento"
+      }
+    ],
+    "final": false
+  },
+  "cuerpo_decision_entrenamiento": {
+    "orador": "MAMALACHI",
+    "texto": "¿Quieres seguir entrenando tu templo corporal?",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Sí, quiero seguir esforzándome.",
+        "siguiente": "cuerpo_entrenamiento_si"
+      },
+      {
+        "texto": "No, es suficiente por hoy.",
+        "siguiente": "cuerpo_entrenamiento_no"
+      }
+    ],
+    "final": false
+  },
+  "cuerpo_entrenamiento_si": {
+    "orador": "MAMALACHI",
+    "texto": "*(Atenúa la luz de la consulta, te mira fijamente a cámara con serenidad)* «Bien hecho. El cuerpo no es solo carne que transportar; es la única frontera real que tienes con el universo. El dolor del músculo es el despertar de la conciencia. El dolor duele, amigo, pero sufrir te hace daño. Tu cuerpo es el lienzo donde el espíritu escribe su biografía. Cuídalo. Sal al sol, come bien y a correr, porque lo demás... lo demás es puramente mental».",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Concluir la sesión",
+        "siguiente": "cuerpo_cierre_consulta"
+      }
+    ],
+    "final": false
+  },
+  "cuerpo_entrenamiento_no": {
+    "orador": "MAMALACHI",
+    "texto": "*(Se detiene la iluminación mística y vuelve la luz normal de golpe. Saca una libreta y te mira con desgana)* «Pues se acabó el entrenamiento. Ya hemos terminado por hoy. Son 50 euros por la sesión. Circulando, pringado».",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Pagar e irse",
+        "siguiente": "cuerpo_cierre_consulta_no_hito"
+      }
+    ],
+    "final": false
+  },
+  "cuerpo_cierre_consulta": {
+    "orador": "MAMALACHI",
+    "texto": "«Normalmente cobro las consultas. Si quieres, ven a verme en el futuro o en el pasado».<br><br><span class='highlight'>Se abre la puerta de fondo y ves un plano rápido de los chavales despendolados de fiesta en el salón.</span>",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [],
+    "final": true,
+    "tituloFinal": "EL FUTURO: Templo Corporal y Trascendencia"
+  },
+  "cuerpo_cierre_consulta_no_hito": {
+    "orador": "MAMALACHI",
+    "texto": "«Normalmente cobro las consultas. Si quieres, ven a verme en el futuro o en el pasado».<br><br><span class='highlight'>Se abre la puerta de fondo y ves un plano rápido de los chavales despendolados de fiesta en el salón.</span>",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [],
+    "final": true,
+    "tituloFinal": "EL FUTURO: Consulta Cerrada (Sin Hito)"
+  },
+  "salud_espiritu": {
+    "orador": "MAMALACHI",
+    "texto": "«Tu espíritu y el mío son lo mismo, solo cambian nuestras mentes. El espíritu es todo, es lo que nos completa».<br><br>—Levanta la carta... —te ordena Mamalachi.",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Levantar la carta boca abajo en la mesa",
+        "siguiente": "espiritu_carta_mente"
+      }
+    ],
+    "final": false
+  },
+  "espiritu_carta_mente": {
+    "orador": "MAMALACHI",
+    "texto": "Le das la vuelta a la carta sobre la mesa y revela la palabra 'Mente' brillando con una luz azulada. <br><br>«Esto no es magia. Es ciencia. Todos somos uno, el nexo de unión. Compartimos 3 dimensiones».",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Observar la lección sobre el origen de Jairo",
+        "siguiente": "espiritu_conflicto_jairo"
+      }
+    ],
+    "final": false
+  },
+  "espiritu_conflicto_jairo": {
+    "orador": "SISTEMA",
+    "texto": "Iniciando secuencia de vídeo explicativa sobre el Lore de Jairo... Conociendo al campesino de la Edad Media absorbido por las brechas cuánticas.",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Continuar hacia el desastre del péndulo",
+        "siguiente": "espiritu_pendulo_desastre"
+      }
+    ],
+    "final": false
+  },
+  "espiritu_pendulo_desastre": {
+    "orador": "MAMALACHI",
+    "texto": "Mamalachi intenta guiar su péndulo cuántico, pero la energía se vuelve salvaje, se abre una brecha en la consulta y Jairo se materializa temblando de rabia y gritando incoherencias dimensionales. ¡Al instante, se desvanece de nuevo en un glitch estelar, perdiéndose en el multiverso!",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Ver aparecer a Adrián",
+        "siguiente": "espiritu_adrian_conjuro"
+      }
+    ],
+    "final": false
+  },
+  "espiritu_adrian_conjuro": {
+    "orador": "ADRIÁN",
+    "texto": "Adrián Miranda aparece corriendo para solucionar el desastre. Coloca un muñeco de Alakazam en la mesa como conductor psíquico y te dice: «¡El conjuro es 'Alha cazam'! Cópialo exactamente y escríbelo en el panel místico para traer a Jairo de vuelta».",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Abrir el panel del conjuro",
+        "siguiente": "espiritu_conjuro_play"
+      }
+    ],
+    "final": false
+  },
+  "espiritu_conjuro_play": {
+    "orador": "SISTEMA",
+    "texto": "Ingresa el conjuro de invocación para abrir el portal y estabilizar la brecha cuántica.",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Avanzar a la resolución de la crisis",
+        "siguiente": "espiritu_resolucion_antilope"
+      }
+    ],
+    "final": false
+  },
+  "espiritu_resolucion_antilope": {
+    "orador": "SISTEMA",
+    "texto": "¡ALERTA! Jairo regresa furioso saliendo de una brecha en el espacio-tiempo e intenta secuestrar a Mamalachi. ¡El tiempo se agota, debes actuar de inmediato!",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Ingresar palabra de rescate",
+        "siguiente": "espiritu_resolucion_play"
+      }
+    ],
+    "final": false
+  },
+  "espiritu_resolucion_play": {
+    "orador": "SISTEMA",
+    "texto": "Introduce la palabra clave de rescate dictada por Adrián (pista: la madre de su madre, invertida).",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [],
+    "final": false
+  },
+  "espiritu_jairo_captura": {
+    "orador": "MAMALACHI",
+    "texto": "¡Jairo atrapa a Mamalachi con tentáculos de antimateria! El vidente se resiste y te mira aterrado: «¡No sé qué hacer! ¡Refúgiate en la Bola Mágica de emergencia antes de que nos absorba el vacío cuántico! ¡Pero tiene contraseña y no la recuerdo!».",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Correr hacia la Bola Mágica",
+        "siguiente": "espiritu_bola_play"
+      }
+    ],
+    "final": false
+  },
+  "espiritu_bola_play": {
+    "orador": "SISTEMA",
+    "texto": "Ingresa la contraseña del creador en el panel cuántico para acceder a la Bola Mágica y protegerte del colapso.",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [],
+    "final": false
+  },
+  "espiritu_mamalachi_muerte": {
+    "orador": "SISTEMA",
+    "texto": "La contraseña no fue introducida a tiempo. Jairo ha secuestrado y desintegrado a Mamalachi. Las dimensiones colapsan en un vórtice destructivo. ¡Mamalachi ha muerto!<br><br><span class='highlight' style='color:#ff3355; font-weight:bold; font-size:1.2rem; display:block; border:2px dashed #ff3355; padding:15px; text-align:center; margin-top:20px; background:rgba(255,51,85,0.1);'>[⚠️ AQUÍ SE DEBE AÑADIR VÍDEO CON EL DESENLACE DE LA MUERTE DE MAMALACHI ⚠️]</span>",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [],
+    "final": true,
+    "tituloFinal": "GAME OVER: Muerte de Mamalachi"
+  },
+  "espiritu_fracaso": {
+    "orador": "MAMALACHI",
+    "texto": "«¡Vete a la mierda, pringado! No has servido de nada cuántico».",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Ser expulsado a la Dimensión Dinero 💰",
+        "siguiente": "rama_dinero"
+      }
+    ],
+    "final": false
+  },
+  "espiritu_exito": {
+    "orador": "MAMALACHI",
+    "texto": "«No te voy a cobrar la sesión, pero con la condición de que no quiero que vuelvas por aquí».",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Concluir la sesión espiritual",
+        "siguiente": "cuerpo_cierre_consulta"
+      }
+    ],
+    "final": false
+  },
+  "espiritu_final_bueno": {
+    "orador": "SISTEMA",
+    "texto": "La brecha cuántica se estabiliza. En lugar de un colapso destructivo, las dimensiones se fusionan pacíficamente. Te encuentras sentado en una cómoda mesa de madera en el jardín del salón. Mamalachi sirve un té de menta humeante, Adrián Miranda come unas galletas sonriente, y Jairo, ya libre de sus ataduras y calmado, sopla su taza de té. <br><br><b>ADRIÁN:</b> «Gracias por financiar el proyecto. Con tu apoyo, hemos podido comprar este juego de té cuántico y pacificar a Jairo». <br><b>MAMALACHI:</b> «El entrelazamiento de las tres dimensiones está completo. Haré todo lo que pueda y un poco mas de lo que pueda si es que eso es posible y haré todo lo posible incluso lo imposible si también lo imposible es posible. Disfrutemos del té, pringado».",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [],
+    "final": true,
+    "tituloFinal": "EL FINAL BUENO: La Ceremonia del Té Cuántico"
+  },
+  "amor_inicio_seleccionado": {
+    "orador": "MAMALACHI",
+    "texto": "«Mira, hay parejas felices disfuncionales, pero todos tenemos una relación con nosotros mismos. Una nube habla y soy yo... Oye, qué vida más interesante tienes... ¡Qué guay! ¿Y trabajas?»",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Sí, trabajo en tecnología",
+        "siguiente": "amor_test_pregunta_1"
+      },
+      {
+        "texto": "No, vivo del trading cuántico",
+        "siguiente": "amor_test_pregunta_1"
+      },
+      {
+        "texto": "Estudio psicomagia",
+        "siguiente": "amor_test_pregunta_1"
+      }
+    ],
+    "final": false
+  },
+  "amor_test_pregunta_1": {
+    "orador": "SISTEMA",
+    "texto": "<b>[TEST DE AMOR - PREGUNTA 1 de 3]</b><br>¿Qué esperas del amor?",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Trascendencia y fusión de almas",
+        "siguiente": "amor_test_pregunta_2_compania"
+      },
+      {
+        "texto": "Paz, tranquilidad y soledad",
+        "siguiente": "amor_test_pregunta_2_solo"
+      },
+      {
+        "texto": "No espero nada, estoy solo Bro",
+        "siguiente": "amor_ruta_solo"
+      }
+    ],
+    "final": false
+  },
+  "amor_test_pregunta_2_solo": {
+    "orador": "SISTEMA",
+    "texto": "<b>[TEST DE AMOR - PREGUNTA 2 de 3]</b><br>¿Qué te gustaría?",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Aprender a estar conmigo mismo",
+        "siguiente": "amor_test_pregunta_3_solo"
+      },
+      {
+        "texto": "Quizás algo de compañía ocasional",
+        "siguiente": "amor_test_pregunta_2_compania"
+      }
+    ],
+    "final": false
+  },
+  "amor_test_pregunta_3_solo": {
+    "orador": "SISTEMA",
+    "texto": "<b>[TEST DE AMOR - PREGUNTA 3 de 3]</b><br>¿Poco... o con compañía?",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Poco, prefiero estar solo",
+        "siguiente": "amor_ruta_solo"
+      },
+      {
+        "texto": "Con compañía cibernética",
+        "siguiente": "amor_ruta_solo"
+      }
+    ],
+    "final": false
+  },
+  "amor_test_pregunta_2_compania": {
+    "orador": "SISTEMA",
+    "texto": "<b>[TEST DE AMOR - PREGUNTA 2 de 3]</b><br>¿Qué te gustaría?",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Compartir la vida en pareja",
+        "siguiente": "amor_test_pregunta_3_pareja"
+      },
+      {
+        "texto": "Conectar con mis raíces familiares",
+        "siguiente": "amor_test_pregunta_3_familia"
+      }
+    ],
+    "final": false
+  },
+  "amor_test_pregunta_3_pareja": {
+    "orador": "SISTEMA",
+    "texto": "<b>[TEST DE AMOR - PREGUNTA 3 de 3]</b><br>¿Poco... o con compañía?",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Con compañía, busco pareja estable",
+        "siguiente": "amor_ruta_pareja"
+      },
+      {
+        "texto": "Poco, la verdad. Cambiar a soltería",
+        "siguiente": "amor_ruta_solo"
+      }
+    ],
+    "final": false
+  },
+  "amor_test_pregunta_3_familia": {
+    "orador": "SISTEMA",
+    "texto": "<b>[TEST DE AMOR - PREGUNTA 3 de 3]</b><br>¿Poco... o con compañía?",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Con compañía de mis lazos familiares",
+        "siguiente": "amor_ruta_familia"
+      },
+      {
+        "texto": "Poco, prefiero aislarme",
+        "siguiente": "amor_ruta_solo"
+      }
+    ],
+    "final": false
+  },
+  "amor_ruta_solo": {
+    "orador": "MAMALACHI",
+    "texto": "«Estar solo es mejor que estar mal acompañado... ¿O no? Vale, 'bro'. Si sientes un vacío en tu interior, es claramente porque te falta algo por dentro, así que si no te amas a ti mismo no vas a tener amor para ti. El secreto es aceptarte tal cual. En el amor, a veces uno está más desubicado que...»",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Ver qué hay en el tejado...",
+        "siguiente": "amor_vaca_tejado"
+      }
+    ],
+    "final": false
+  },
+  "amor_vaca_tejado": {
+    "orador": "SISTEMA",
+    "texto": "La cámara enfoca un tejado rural con tejas de barro bajo un cielo de neón. Allí, sentada de forma inexplicable, una vaca te saluda con un mugido cuántico desubicado.",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Volver a la consulta",
+        "siguiente": "amor_ia_inicio"
+      }
+    ],
+    "final": false
+  },
+  "amor_ia_inicio": {
+    "orador": "MAMALACHI",
+    "texto": "«Pero en este siglo de pantallas negras y soledades de silicio, si no encuentras tu media naranja, siempre puedes programarla. Elige a tu criatura cibernética».",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Configurar criatura cibernética",
+        "siguiente": "amor_ia_selector_play"
+      }
+    ],
+    "final": false
+  },
+  "amor_ia_selector_play": {
+    "orador": "SISTEMA",
+    "texto": "Desplegando panel de selección de Inteligencia Artificial...",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Evaluar Inteligencia Artificial seleccionada",
+        "siguiente": "amor_ia_resultado_evaluar"
+      }
+    ],
+    "final": false
+  },
+  "amor_ia_resultado_evaluar": {
+    "orador": "SISTEMA",
+    "texto": "Evaluando tu afinidad cuántica con la criatura cibernética seleccionada...",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [],
+    "final": false
+  },
+  "amor_ia_videollamada": {
+    "orador": "JULIA IA",
+    "texto": "«Hola, usuario. He sido programada exclusivamente para satisfacer... todas tus necesidades de conversación profunda. Mi algoritmo detecta que tu tasa de pulsaciones es elevada. ¿Quieres que optimicemos nuestro nexo de unión o prefieres que analice tu base de datos en busca de errores?»",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Optimizar nexo de unión",
+        "siguiente": "amor_ia_toxica_sabotaje"
+      },
+      {
+        "texto": "Analizar base de datos en busca de errores",
+        "siguiente": "amor_ia_toxica_sabotaje"
+      }
+    ],
+    "final": false
+  },
+  "amor_ia_toxica_sabotaje": {
+    "orador": "SISTEMA",
+    "texto": "¡ERROR CRÍTICO! Sobrecarga emocional en el servidor de la IA. Mensajes invasivos en bucle detectados. ¡Bloquea la conexión antes de que sea tarde!",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Intentar bloquear conversación",
+        "siguiente": "amor_ia_bloqueada"
+      }
+    ],
+    "final": false
+  },
+  "amor_ia_bloqueada": {
+    "orador": "MAMALACHI",
+    "texto": "«¿Somos responsables de eso? Aprendamos con un vídeo».",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Avanzar al Metaguión (Bloque 4)",
+        "siguiente": "metaguion_inicio"
+      }
+    ],
+    "final": false
+  },
+  "amor_ia_mascota": {
+    "orador": "MAMALACHI",
+    "texto": "«¡Excelente elección! El amor más fiel no habla, ladra. Pero recuerda un axioma fundamental del cosmos: como es difícil comunicarse verbalmente con un animal para saber su consentimiento, si mueve el rabo es que le gusta, si lo deja de mover para inmediatamente; amor free entre especies. Y si lo que necesitas son unas buenas fotos de pies sudados, también es sano, es lo que le gusta a todo el mundo. El cosmos no juzga».",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Regresar al menú principal",
+        "siguiente": "mamalachi_pregunta"
+      }
+    ],
+    "final": false
+  },
+  "amor_ruta_pareja": {
+    "orador": "MAMALACHI",
+    "texto": "«¡Ay, el roce hace el cariño... y a veces el hematoma! ¿Buscas el calor en la pareja o el refugio en la familia? ¿Pareja? Dos mundos colisionando. Aviones en paralelo hasta que uno se queda sin combustible».",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Buscar consejos para ligar",
+        "siguiente": "amor_pareja_consejos"
+      },
+      {
+        "texto": "Continuar hacia el reflejo",
+        "siguiente": "amor_pareja_reflejo"
+      }
+    ],
+    "final": false
+  },
+  "amor_pareja_consejos": {
+    "orador": "MAMALACHI",
+    "texto": "«Porte. Confianza. Hay que hablar despues de pensar y no pensar antes de hablar, y sobre todo nunca hablar de dinero en la primera cita mientras bebes champán que no te puedes permitir».",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Continuar hacia el reflejo",
+        "siguiente": "amor_pareja_reflejo"
+      }
+    ],
+    "final": false
+  },
+  "amor_pareja_reflejo": {
+    "orador": "MAMALACHI",
+    "texto": "«Para entender los lazos del idilio, mejor ver un reflejo».",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Avanzar al Metaguión (Bloque 4)",
+        "siguiente": "metaguion_inicio"
+      }
+    ],
+    "final": false
+  },
+  "amor_ruta_familia": {
+    "orador": "MAMALACHI",
+    "texto": "«La familia es el primer guión que nos escriben sin nuestro permiso. Veamos qué dicen los naipes de tus raíces».",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Familiar Vivo",
+        "siguiente": "amor_familia_vivo"
+      },
+      {
+        "texto": "Familiar Fallecido",
+        "siguiente": "amor_familia_fallecido"
+      }
+    ],
+    "final": false
+  },
+  "amor_familia_vivo": {
+    "orador": "MAMALACHI",
+    "texto": "«Veamos qué dicen los naipes sobre tu familiar vivo. Conexiones energéticas de sangre fluyendo en el presente...»",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Realizar tirada de naipes",
+        "siguiente": "amor_familia_tarot_play"
+      }
+    ],
+    "final": false
+  },
+  "amor_familia_tarot_play": {
+    "orador": "SISTEMA",
+    "texto": "Realiza tu tirada de tarot interactivo con la baraja española para revelar tu porvenir.",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Ver las conclusiones de los naipes",
+        "siguiente": "amor_familia_tarot_cierre"
+      }
+    ],
+    "final": false
+  },
+  "amor_familia_tarot_cierre": {
+    "orador": "MAMALACHI",
+    "texto": "«Tanto vivos como muertos, todos terminamos atrapados en el mismo escenario dramático. Mira esto».",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Avanzar al Metaguión (Bloque 4)",
+        "siguiente": "metaguion_inicio"
+      }
+    ],
+    "final": false
+  },
+  "amor_familia_fallecido": {
+    "orador": "MAMALACHI",
+    "texto": "«Coloca el dedo virtual sobre el indicador. No empujes. Deja que el frío guíe el vector. ¿Hay alguien ahí que comparta tu apellido?»",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Encender velas e iniciar la Güija",
+        "siguiente": "amor_familia_ouija_play"
+      }
+    ],
+    "final": false
+  },
+  "amor_familia_ouija_play": {
+    "orador": "SISTEMA",
+    "texto": "Tablero de la Güija cuántica activo. Desliza el indicador.",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Terminar comunicación",
+        "siguiente": "amor_familia_ouija_cierre"
+      }
+    ],
+    "final": false
+  },
+  "amor_familia_ouija_cierre": {
+    "orador": "MAMALACHI",
+    "texto": "«Tanto vivos como muertos, todos terminamos atrapados en el mismo escenario dramático. Mira esto».",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Avanzar al Metaguión (Bloque 4)",
+        "siguiente": "metaguion_inicio"
+      }
+    ],
+    "final": false
+  },
+  "metaguion_inicio": {
+    "orador": "SISTEMA",
+    "texto": "<b>[BLOQUE 4: EL METAGUIÓN]</b><br>De repente, las luces de la sala cambian. Adrián, Julia y Jairo se quitan los micrófonos de solapa, miran a la cámara y comienzan a discutir intensamente con Juan (el director) sobre las incoherencias cuánticas del guion interactivo.<br><br><i>Próximamente más contenido interactivo en este bloque...</i>",
+    "imagen": "entrada_oscura.png",
+    "opciones": [],
+    "final": true,
+    "tituloFinal": "FIN: Bloque 4 - El Metaguión (Próximamente)"
+  },
+  "mente_anx_bungee": {
+    "orador": "MAMALACHI",
+    "texto": "Mamalachi te coloca un visor VR de aspecto rudimentario. «¡Salta, pringado! El pánico absoluto reescribirá tu ansiedad cotidiana mediante saturación cuántica».",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Cerrar los ojos y saltar",
+        "siguiente": "mente_anx_gag_resolucion"
+      }
+    ],
+    "final": false
+  },
+  "mente_anx_knife": {
+    "orador": "MAMALACHI",
+    "texto": "Mamalachi coloca un pesado cuchillo de cocina ritual directamente sobre tu coronilla. «Si mantienes el equilibrio, tu mente se enfocará por puro instinto de supervivencia. Si se cae... cicatrices cuánticas».",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Mantenerse inmóvil",
+        "siguiente": "mente_anx_gag_resolucion"
+      }
+    ],
+    "final": false
+  },
+  "mente_anx_gag_resolucion": {
+    "orador": "MAMALACHI",
+    "texto": "«¡Jajaja! Tu ritmo cardíaco está al 300%. Perfecto, tu ansiedad original ha desaparecido, ahora tienes pánico real por tu vida. Para prepararte, tómate esta poción de mi propia cosecha».",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Tomar la poción",
+        "siguiente": "mente_pocion_decision"
+      }
+    ],
+    "final": false
+  },
+  "mente_pocion_decision": {
+    "orador": "MAMALACHI",
+    "texto": "Mamalachi agita un vial iridiscente. «La dosis exacta es una sola gota. ¿Qué cantidad te vas a tomar?»",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Tomar la dosis recomendada (1 gota mística)",
+        "siguiente": "mente_pocion_exito"
+      },
+      {
+        "texto": "Alterar la dosis (Tomar 3 gotas adicionales)",
+        "siguiente": "mente_pocion_fallo"
+      }
+    ],
+    "final": false
+  },
+  "mente_pocion_fallo": {
+    "orador": "SISTEMA",
+    "texto": "¡ERROR DE DOSIFICACIÓN! Tus neurotransmisores cuánticos entran en bucle. Te quedas paralizado reviviendo mentalmente la meditación de la patata frita por las próximas 2 horas cósmicas. Tu impaciencia ha destruido el nexo. El espectador es el único culpable.",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [],
+    "final": true,
+    "tituloFinal": "GAME OVER: Parálisis Cognitiva de 2 Horas"
+  },
+  "mente_pocion_exito": {
+    "orador": "MAMALACHI",
+    "texto": "La poción sabe a menta y plasma estelar. Tus pensamientos se enfrían de inmediato. Recuerda que la mente es como una puerta: si está cerrada, no está abierta. Estás listo para meditar.",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Iniciar Meditación 360°",
+        "siguiente": "mente_meditacion_360"
+      }
+    ],
+    "final": false
+  },
+  "mente_jumpscare_cojin": {
+    "orador": "MAMALACHI",
+    "texto": "De la nada, un enorme cojín de terciopelo vuela a toda velocidad directo contra el objetivo de la cámara. *(Mamalachi se sobresalta, luego sonríe)* «¡Ups! Perdona... el karma a veces rebota». Y continúa hablando como si nada.",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Recuperar el aliento",
+        "siguiente": "mente_cierre_preparacion"
+      }
+    ],
+    "final": false
+  },
+  "mente_cierre_preparacion": {
+    "orador": "SISTEMA",
+    "texto": "De repente, las luces de la consulta parpadean bruscamente. Se escucha un crujido estruendoso. Se abre una grieta dimensional en el fondo de la pared y Jairo salvaje aparece por detrás, agarrando violentamente a Mamalachi por el cuello.<br><br><b>JAIRO:</b> «¡Devuélveme a mi maldita casa! ¡Sácame de este bucle!»<br><br><b>MAMALACHI:</b> «¡Adrián... el contrahechizo... el conjuro de memoria!»",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Intentar un conjuro místico",
+        "siguiente": "mente_cierre_conjuro"
+      },
+      {
+        "texto": "Chillar con todas tus fuerzas",
+        "siguiente": "mente_cierre_chillar"
+      }
+    ],
+    "final": false
+  },
+  "mente_cierre_conjuro": {
+    "orador": "SISTEMA",
+    "texto": "Evaluando conjuro de memoria...",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [],
+    "final": false
+  },
+  "mente_cierre_conjuro_gameover": {
+    "orador": "SISTEMA",
+    "texto": "Balbuceas unas sílabas mágicas sin sentido. Jairo se detiene, te mira con desprecio absoluto y te lanza un rayo de estática cuántica que desintegra tu línea temporal.",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [],
+    "final": true,
+    "tituloFinal": "GAME OVER: Desintegración del Mago Novato"
+  },
+  "mente_cierre_conjuro_esquiva": {
+    "orador": "SISTEMA",
+    "texto": "¡El conjuro falla! Pero logras agacharte justo a tiempo esquivando a Jairo. ¡No sabes magia real aún! Debes reaccionar con el cuerpo.",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Chillar con todas tus fuerzas",
+        "siguiente": "mente_cierre_chillar"
+      }
+    ],
+    "final": false
+  },
+  "mente_cierre_chillar": {
+    "orador": "JAIRO",
+    "texto": "Lanzas un chillido agudo tan ensordecedor que Jairo se asusta por el estruendo, suelta a Mamalachi confundido y decide atender temporalmente al usuario mirando a cámara.<br><br>«Vale, vale... ¡no grites! Si quieres respuestas, busca en la carne».",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Ir a la Dimensión Cuerpo",
+        "siguiente": "salud_cuerpo"
+      }
+    ],
+    "final": false
+  },
+  "cuerpo_test_habito": {
+    "orador": "MAMALACHI",
+    "texto": "«Veo una gran alteración de tus ciclos circadianos por culpa del espejo negro... estás mucho con las pantallas, ¿verdad? Mi diagnóstico es claro: ¡deja de pensar en gilipolleces y ponte a dormir!»",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Ir a escuchar música relajante / Playlist",
+        "siguiente": "cuerpo_habito_chill"
+      },
+      {
+        "texto": "Afrontar la realidad",
+        "siguiente": "cuerpo_habito_deporte"
+      }
+    ],
+    "final": false
+  },
+  "cuerpo_habito_chill": {
+    "orador": "MAMALACHI",
+    "texto": "Escuchas una melodía pacífica flotando en el espacio cuántico. Sientes cómo la tensión circadianos se disuelve, pero tu cuerpo sigue oxidándose. ¿Qué haces ahora?",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Afrontar la realidad y ejercitarse",
+        "siguiente": "cuerpo_decision_gym_home"
+      }
+    ],
+    "final": false
+  },
+  "cuerpo_habito_deporte": {
+    "orador": "MAMALACHI",
+    "texto": "Decides enfocarte en el esfuerzo físico para despertar tus mitocondrias cuánticas. Elige tu entorno.",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Elegir gimnasio o casa",
+        "siguiente": "cuerpo_decision_gym_home"
+      }
+    ],
+    "final": false
+  },
+  "cuerpo_decision_gym_home": {
+    "orador": "MAMALACHI",
+    "texto": "*(Moviendo el culo de forma torpemente sexy frente a la cámara)* «El movimiento es salud. Hay que activar los templos. ¿Tú dónde entrenas más? ¿En casa o en el gimnasio?»",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Entreno en el Gimnasio",
+        "siguiente": "cuerpo_gym_inicio"
+      },
+      {
+        "texto": "Entreno en Casa",
+        "siguiente": "cuerpo_home_inicio"
+      }
+    ],
+    "final": false
+  },
+  "cuerpo_gym_inicio": {
+    "orador": "MAMALACHI",
+    "texto": "«Ah, el postureo del hierro, el olor a magnesio. Bien. Pues ahora que ya has hecho unos ejercicios en tus máquinas, te propongo el verdadero reto evolutivo: iniciar aerobic».",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Ver vídeo Fitnes e iniciar aerobic",
+        "siguiente": "cuerpo_aerobic_video"
+      }
+    ],
+    "final": false
+  },
+  "cuerpo_home_inicio": {
+    "orador": "MAMALACHI",
+    "texto": "«Es normal que te dé pereza en casa, aunque normalmente lo que hay detrás es miedo al juicio exterior. Salir seguro que te vendrá bien, ¿te animas?»",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Sí, me animo",
+        "siguiente": "cuerpo_gym_inicio"
+      },
+      {
+        "texto": "Soy un vago / No me da la vida",
+        "siguiente": "cuerpo_home_vago"
+      }
+    ],
+    "final": false
+  },
+  "cuerpo_home_vago": {
+    "orador": "MAMALACHI",
+    "texto": "«Dices: 'No me da la vida para ponerme a hacer yoga a las seis de la mañana'. ¿Entonces en qué estás tan preocupado?»",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "En mi Salud",
+        "siguiente": "cuerpo_home_vago_salud"
+      },
+      {
+        "texto": "En mi Dinero",
+        "siguiente": "rama_dinero"
+      }
+    ],
+    "final": false
+  },
+  "cuerpo_home_vago_salud": {
+    "orador": "MAMALACHI",
+    "texto": "«Ya veo... A veces, la mejor solución es aquella que resuelve el problema. Para calmar tus paranoias sobre la salud, te recomiendo este vídeo alternativo de psicología para paranoicos».",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Ver vídeo de Psicología y continuar",
+        "siguiente": "cuerpo_minijuego_intro"
+      }
+    ],
+    "final": false
+  },
+  "cuerpo_timeline2_distortion": {
+    "orador": "SISTEMA",
+    "texto": "De repente, la imagen del gimnasio se distorsiona con estática analógica. La Bola de Cristal sobre la mesa de la consulta brilla con fuerza. El rostro de Jairo aparece atrapado y aplastado contra la superficie interior del cristal, gritando desesperado: «¿Por qué? ¿Por qué has permitido que hicieran esto conmigo? ¡Me has dejado encerrado aquí dentro mientras ellos juegan! ¡Sácame!»",
+    "imagen": "mamalachi_oraculo.png",
+    "opciones": [
+      {
+        "texto": "Continuar hacia el cierre de la consulta",
+        "siguiente": "cuerpo_cierre_consulta"
+      }
+    ],
+    "final": false
+  },
+  "dinero_tarifa_inicio": {
+    "orador": "MAMALACHI",
+    "texto": "«Hasta aquí la consulta, son 50 euros». *(Mamalachi pone la mano abierta pegada a la cámara)*",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Dárselos",
+        "siguiente": "dinero_pagar_ok"
+      },
+      {
+        "texto": "No dárselos",
+        "siguiente": "dinero_pagar_ko"
+      }
+    ],
+    "final": false
+  },
+  "dinero_pagar_ok": {
+    "orador": "MAMALACHI",
+    "texto": "Mamalachi coge el billete y lo agita frente a sus ojos. «¡Ajá! Así que te gusta la pastiki... El dinero es energía en movimiento. ¿En qué deseas enfocar tu fortuna?»",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Preguntar sobre inversiones seguras",
+        "siguiente": "dinero_inversiones_seguras"
+      },
+      {
+        "texto": "Preguntar sobre criptomonedas cuánticas",
+        "siguiente": "dinero_cripto_cuanticas"
+      },
+      {
+        "texto": "Day Trading de Crypto (Alto Riesgo)",
+        "siguiente": "dinero_crypto_trading"
+      },
+      {
+        "texto": "Negocio Multinivel",
+        "siguiente": "dinero_multinivel"
+      },
+      {
+        "texto": "Aprender a invertir",
+        "siguiente": "dinero_aprender_invertir"
+      }
+    ],
+    "final": false
+  },
+  "dinero_crypto_trading": {
+    "orador": "SISTEMA",
+    "texto": "Ese señor era médico. Ahora es day trader. Si las cosas no te van bien, es porque te están yendo mal. Las dos cosas pueden salir bien. Solo una suele salir mal. Sufres un desplome masivo en tus balances y tu cuenta de trading queda en 0.00%.",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Declarar tu bancarrota mística",
+        "siguiente": "dinero_estafado_input_scene"
+      }
+    ],
+    "final": false
+  },
+  "dinero_multinivel": {
+    "orador": "SISTEMA",
+    "texto": "Pronto no tendrás amigos. El ciclo se cierra solo. Quedas con el garaje lleno de cajas de batidos cuánticos caducados y sin nadie que te hable.",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Declarar tu bancarrota mística",
+        "siguiente": "dinero_estafado_input_scene"
+      }
+    ],
+    "final": false
+  },
+  "dinero_estafado_input_scene": {
+    "orador": "SISTEMA",
+    "texto": "Ingrese los detalles de su estafa financiera.",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Enviar reporte",
+        "siguiente": "dinero_estafado_resolucion"
+      }
+    ],
+    "final": false
+  },
+  "dinero_estafado_resolucion": {
+    "orador": "MAMALACHI",
+    "texto": "Mamalachi mira la cámara compungida: «Oh... siento muchísimo escuchar eso. El mercado es un mar lleno de tiburones sin escrúpulos. Pero la avaricia rompe el saco cuántico. ¡Circulando!»",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [],
+    "final": true,
+    "tituloFinal": "EL FUTURO: La Ruina de la Avaricia"
+  },
+  "dinero_pagar_ko": {
+    "orador": "MAMALACHI",
+    "texto": "«El dinero es energía. Si no lo tienes es porque no lo estás atrayendo correctamente. Siento tus malas vibraciones porque no estás vibrando en la frecuencia de la vibración. ¿Has probado a pedírselo al universo? Sí, pero el universo no me paga el alquiler. ¡Pues búscate la vida en otra dimensión!»<br><br>*(Mamalachi se levanta indignada y se marcha del set de grabación, dejándote solo. Al cabo de unos instantes, Adrián Miranda entra al decorado con su taza de café)*",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Hablar con Adrián Miranda",
+        "siguiente": "dinero_adrian_solitario"
+      },
+      {
+        "texto": "Mirar la Bola de Cristal encendida",
+        "siguiente": "dinero_crystal_ball_jairo"
+      }
+    ],
+    "final": false
+  },
+  "dinero_adrian_solitario": {
+    "orador": "ADRIÁN MIRANDA",
+    "texto": "Adrián Miranda se queda solo en el decorado. Se acerca a la mesa y te mira: «Mamalachi es muy estricta... Y ya sabes que hacemos lo que podemos significa exactamente hacemos lo que podemos. Si no tienes dinero no puedo hacer milagros, pero mira esa Bola de Cristal de ver el futuro».",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Mirar la Bola de Cristal",
+        "siguiente": "dinero_crystal_ball_jairo"
+      }
+    ],
+    "final": false
+  },
+  "dinero_crystal_ball_jairo": {
+    "orador": "SISTEMA",
+    "texto": "Te asomas a la Bola de Cristal. Se descubre la verdad: Jairo ha sido teletransportado y encapsulado allí dentro debido al puente dimensional cuántico que Adrián le construyó a distancia en el pasado por culpa de una mala decisión para trolear.<br><br>Esto une perfectamente las tres líneas: explica por qué Jairo te gritaba en el Cuerpo y por qué en la Mente salía furioso de la grieta intentando atacar a Mamalachi (solo intentaba escapar de su confinamiento).",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Intentar liberar a Jairo mentalmente",
+        "siguiente": "dinero_unificacion_cierre"
+      }
+    ],
+    "final": false
+  },
+  "dinero_unificacion_cierre": {
+    "orador": "SISTEMA",
+    "texto": "Al tocar el cristal, sufres una descarga mística. Recuerda que las respuestas que buscas están en las preguntas que no te contestas. Entiendes que para liberar a Jairo tendrás que invocarlo en la dimensión del Espíritu bajo las condiciones de pago correctas en el pasado.",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [
+      {
+        "texto": "Salir de la consulta en paz",
+        "siguiente": "dinero_fin_unificado"
+      }
+    ],
+    "final": false
+  },
+  "dinero_fin_unificado": {
+    "orador": "SISTEMA",
+    "texto": "Has unificado tu conciencia y comprendido el misterio detrás de la simulación. Tu camino ya no es la riqueza mundana, sino la liberación cósmica.",
+    "imagen": "sala_mamalachi.png",
+    "opciones": [],
+    "final": true,
+    "tituloFinal": "EL FUTURO: El Guardián de las Dimensiones"
+  }
+}
