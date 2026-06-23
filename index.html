@@ -86,12 +86,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: default;
+    }
+
+    body.game-active {
       cursor: none;
-      /* Ocultamos cursor nativo para usar el personalizado */
     }
 
     /* Cursor personalizado */
     #custom-cursor {
+      display: none;
       width: 16px;
       height: 16px;
       border: 2px solid var(--color-neon-blue);
@@ -102,6 +106,10 @@
       z-index: 9999;
       box-shadow: 0 0 10px var(--color-neon-blue-glow);
       transition: width 0.1s, height 0.1s, background-color 0.1s;
+    }
+
+    body.game-active #custom-cursor {
+      display: block;
     }
 
     body:active #custom-cursor {
@@ -271,7 +279,14 @@
       width: 1330px;
       height: 640px;
       flex-shrink: 0;
-      transition: transform 0.1s ease-out;
+      transition: opacity 0.8s ease, transform 0.1s ease-out;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #main-console.visible-console {
+      opacity: 1;
+      pointer-events: auto;
     }
 
     /* Panel lateral de decisiones estilo corteza/piedra mística */
@@ -1282,12 +1297,15 @@
        9. RESPONSIVIDAD Y AJUSTES MÓVILES
        ========================================================================== */
     @media (max-width: 600px) {
-      body {
+
+      body,
+      body.game-active {
         cursor: default;
         /* Usar cursor nativo en móviles */
       }
 
-      #custom-cursor {
+      #custom-cursor,
+      body.game-active #custom-cursor {
         display: none;
       }
 
@@ -1340,11 +1358,14 @@
 
     /* Soporte específico para móvil horizontal (landscape) */
     @media (orientation: landscape) and (max-height: 600px) {
-      body {
+
+      body,
+      body.game-active {
         cursor: default;
       }
 
-      #custom-cursor {
+      #custom-cursor,
+      body.game-active #custom-cursor {
         display: none;
       }
 
@@ -3344,10 +3365,138 @@
         transform: translate(1px, -2px) rotate(-1deg);
       }
     }
+
+    /* ==========================================================================
+       11. PANTALLA DE INICIO / PLAY OVERLAY
+       ========================================================================== */
+    #game-start-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at center, #0c0919 0%, #05030a 100%);
+      z-index: 999999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.8s;
+      overflow: hidden;
+    }
+
+    #game-start-overlay.fade-out {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .start-overlay-content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      animation: scaleUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      z-index: 2;
+    }
+
+    .start-overlay-logo {
+      font-family: var(--font-title);
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .start-overlay-logo .neon-text-blue {
+      color: var(--color-neon-blue);
+      text-shadow: 0 0 20px var(--color-neon-blue-glow);
+    }
+
+    .start-overlay-logo .gold-text {
+      color: var(--color-gold);
+      text-shadow: 0 0 20px var(--color-gold-glow);
+      font-size: 2.2rem;
+      margin-top: -10px;
+    }
+
+    .start-overlay-subtitle {
+      font-family: var(--font-body);
+      font-size: 1.25rem;
+      color: var(--color-text-muted);
+      font-style: italic;
+      letter-spacing: 2px;
+    }
+
+    /* Botón Jugar Premium */
+    .play-btn-large {
+      background: linear-gradient(135deg, #d4af37 0%, #aa7c11 50%, #8a640f 100%);
+      border: 2px solid var(--color-gold);
+      color: #000;
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 1.8rem;
+      letter-spacing: 3px;
+      padding: 18px 60px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6),
+        0 0 20px var(--color-gold-glow);
+      position: relative;
+      overflow: hidden;
+      outline: none;
+    }
+
+    .play-btn-large::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent);
+      transition: all 0.6s;
+    }
+
+    .play-btn-large:hover::before {
+      left: 100%;
+    }
+
+    .play-btn-large:hover {
+      transform: scale(1.08) translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0, 240, 255, 0.3),
+        0 0 35px var(--color-gold-glow);
+      border-color: #fff;
+      color: #fff;
+      background: linear-gradient(135deg, #ffd700 0%, #d4af37 50%, #aa7c11 100%);
+    }
+
+    .play-btn-large:active {
+      transform: scale(0.96) translateY(-1px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- Pantalla de Inicio / Play Overlay -->
+  <div id="game-start-overlay">
+    <div class="start-overlay-content">
+      <div class="start-overlay-logo">
+        <span class="neon-text-blue">VIDENTE</span>
+        <span class="gold-text">INTERACTIVO</span>
+      </div>
+      <p class="start-overlay-subtitle">MAMALACHI</p>
+      <button id="btn-play-game" class="play-btn-large" onclick="startGame()">JUGAR</button>
+    </div>
+  </div>
 
   <!-- Cursor Místico -->
   <div id="custom-cursor"></div>
@@ -4026,7 +4175,7 @@
     </div>
   </div>
 
-  <div id="main-console">
+  <div id="main-console" class="invisible-console">
     <!-- Contenedor de decisiones fuera de la TV (lado izquierdo) -->
     <div id="choices-container" style="position: relative;">
       <!-- Esquinas mágicas decorativas -->
@@ -6142,7 +6291,6 @@
         try {
           HISTORIA = JSON.parse(localStory);
           console.log("Cargado guion guardado del editor (localStorage)");
-          inicializarJuego();
           return;
         } catch (e) {
           console.error("Error al parsear guion de localStorage", e);
@@ -6159,8 +6307,6 @@
         console.warn("No se pudo cargar guion.json (CORS o modo local offline). Usando integrado:", err);
         HISTORIA = JSON.parse(JSON.stringify(HISTORIA_DEFAULT)); // Clonación profunda
       }
-
-      inicializarJuego();
     }
 
     function inicializarJuego() {
@@ -8765,19 +8911,96 @@
       wrapper.style.transformOrigin = 'center center';
     }
 
+    let guionPromise = null;
+    let gameStarted = false;
+
+    async function startGame() {
+      if (gameStarted) return;
+      gameStarted = true;
+
+      const btn = document.getElementById('btn-play-game');
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = "Iniciando...";
+      }
+
+      // Esperar a que el guion esté cargado
+      if (!HISTORIA && guionPromise) {
+        await guionPromise;
+      }
+
+      // 1. Solicitar Pantalla Completa (Fullscreen API)
+      const elem = document.documentElement;
+      try {
+        if (elem.requestFullscreen) {
+          await elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+          await elem.webkitRequestFullscreen();
+        } else if (elem.mozRequestFullScreen) {
+          await elem.mozRequestFullScreen();
+        } else if (elem.msRequestFullscreen) {
+          await elem.msRequestFullscreen();
+        }
+      } catch (err) {
+        console.warn("La solicitud de pantalla completa fue rechazada:", err);
+      }
+
+      // 2. Intentar bloquear orientación en horizontal (landscape)
+      try {
+        const lock = screen.orientation || screen.mozOrientation || screen.msOrientation;
+        if (lock && lock.lock) {
+          await lock.lock('landscape');
+        } else if (screen.lockOrientation) {
+          screen.lockOrientation('landscape');
+        } else if (screen.webkitLockOrientation) {
+          screen.webkitLockOrientation('landscape');
+        } else if (screen.mozLockOrientation) {
+          screen.mozLockOrientation('landscape');
+        } else if (screen.msLockOrientation) {
+          screen.msLockOrientation('landscape');
+        }
+      } catch (err) {
+        console.warn("No se pudo bloquear la orientación del dispositivo:", err);
+      }
+
+      // 3. Añadir clase activa al body para ocultar el cursor nativo y activar el personalizado
+      document.body.classList.add('game-active');
+
+      // 4. Iniciar Audio Engine y reproducir ambiente
+      if (typeof AudioEngine !== 'undefined') {
+        AudioEngine.init();
+        AudioEngine.playMysticalAmbient();
+      }
+
+      // 5. Inicializar el motor del juego y la interfaz
+      inicializarJuego();
+
+      // 6. Hacer desaparecer la capa superpuesta
+      const overlay = document.getElementById('game-start-overlay');
+      if (overlay) {
+        overlay.classList.add('fade-out');
+      }
+
+      // 7. Mostrar la consola del juego
+      const mainConsole = document.getElementById('main-console');
+      if (mainConsole) {
+        mainConsole.classList.add('visible-console');
+      }
+
+      // 8. Reajustar dimensiones inmediatamente
+      resizeGame();
+      setTimeout(resizeGame, 100);
+      setTimeout(resizeGame, 300);
+    }
+
     // Lanzar cargador de guion al cargar la página
     document.addEventListener('DOMContentLoaded', () => {
-      cargarGuion();
+      guionPromise = cargarGuion();
       resizeGame();
       if (typeof ChoiceParticles !== 'undefined') {
         ChoiceParticles.init();
       }
       window.addEventListener('resize', resizeGame);
-      document.addEventListener('click', () => {
-        if (typeof AudioEngine !== 'undefined') {
-          AudioEngine.playMysticalAmbient();
-        }
-      }, { once: true });
     });
 
     //]]>
